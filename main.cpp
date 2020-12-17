@@ -2,7 +2,7 @@
 #include <vector>
 #include "Node.h"
 #include "puzzle8.h"
-#include "bfs.h"
+#include "BFS.h"
 
 int main()
 {
