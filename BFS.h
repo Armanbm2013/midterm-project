@@ -1,20 +1,20 @@
 #ifndef BFS_h
 #define BFS_h
 
+#include <iostream>
+#include <vector>
 #include <queue>
 #include <stack>
 
-#include "puzzle8.h"
-
-void BFS(puzzle8 &init, const std::vector<int> &goal)
+void BFS(std::vector<int> &init, const std::vector<int> &goal)
 {
-    std::queue<puzzle8> queue{};
-    std::vector<puzzle8> bfs{init};
+    std::queue<std::vector<int>> queue{};
+    std::vector<std::vector<int>> bfs{init};
     queue.push(bfs.back());
     size_t depth{};
     while (true)
     {
-        if (bfs.back().state == goal)
+        if (bfs.back() == goal)
         {
             std::cout << "*************************\n";
             std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << bfs.size() - 1 << std::endl;
@@ -24,7 +24,7 @@ void BFS(puzzle8 &init, const std::vector<int> &goal)
         else
         {
             for (size_t i{}; i < 9; i++)
-                if (queue.front().state[i] == 0)
+                if (queue.front()[i] == 0)
                 {
                 }
         }
