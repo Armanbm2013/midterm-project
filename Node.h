@@ -7,10 +7,9 @@
 class Node
 {
 public:
-    Node(int i);
     Node(Node *u, Node *d, Node *l, Node *r);
 
-    int *val{nullptr};
+    int val{};
     Node *up{nullptr};
     Node *down{nullptr};
     Node *left{nullptr};
