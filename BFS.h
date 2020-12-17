@@ -3,8 +3,8 @@
 
 #include "puzzle8.h"
 
-class BFS
+void BFS()
 {
-};
+}
 
 #endif
