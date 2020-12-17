@@ -2,10 +2,9 @@
 
 puzzle8::puzzle8(std::vector<int> &state)
 {
-    std::cout << "puzzle8 constructor" << std::endl;
     for (size_t i{}; i < 9; i++)
     {
-        nodes[i]->val = state[i];
+        nodes[i] = new Node{state[i]};
     }
     nodes[0]->up = nullptr;
     nodes[0]->down = nodes[3];

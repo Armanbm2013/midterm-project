@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+#include "Node.h"
+#include "puzzle8.h"
+#include "bfs.h"
 
 int main()
 {
-    std::vector<std::vector<int>> a;
     return 0;
 }
