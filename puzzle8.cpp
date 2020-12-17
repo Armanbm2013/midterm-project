@@ -1,6 +1,6 @@
 #include "puzzle8.h"
 
-puzzle8::puzzle8(std::vector<int> &state)
+puzzle8::puzzle8(std::vector<int> &state) : state{state}
 {
     for (size_t i{}; i < 9; i++)
     {
