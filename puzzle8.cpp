@@ -43,3 +43,9 @@ puzzle8::puzzle8(std::vector<int> &state)
     nodes[8]->left = nodes[7];
     nodes[8]->right = nullptr;
 }
+
+puzzle8::~puzzle8()
+{
+    for (auto &item : nodes)
+        delete item;
+}

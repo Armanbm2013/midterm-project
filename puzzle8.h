@@ -7,7 +7,7 @@ class puzzle8
 {
 public:
     puzzle8(std::vector<int> &state);
-
+    ~puzzle8();
     std::vector<Node *> nodes{9, nullptr};
 };
 
