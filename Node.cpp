@@ -1,6 +1,6 @@
 #include "Node.h"
 
-Node::Node(Node *u, Node *d, Node *l, Node *r) : up{u}, down{d}, left{l}, right{r}
+Node::Node(int i) : val{i}
 {
     std::cout << "Node constructor" << std::endl;
 }
