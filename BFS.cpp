@@ -22,6 +22,7 @@ void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal)
                     i = j;
             if (i == 0)
             {
+                if
             }
             else if (i == 1)
             {
