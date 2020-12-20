@@ -1,6 +1,6 @@
 #include "BFS.h"
 
-void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal)
+void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
     if (init == goal) //when the initial puzzle is the goal puzzle!
     {
