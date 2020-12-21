@@ -14,7 +14,6 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
         std::vector<std::vector<size_t>> bfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         queue.push(bfs.back());
         size_t steps{};
-        bool in_bfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
         while (true)
         {
@@ -1795,24 +1794,4 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                 break;
         }
     }
-}
-
-bool is_goal_1(const std::vector<size_t> &state, const std::vector<size_t> &goal)
-{
-    return state[0] == goal[0];
-}
-
-bool is_goal_2(const std::vector<size_t> &state, const std::vector<size_t> &goal)
-{
-    return state[1] == goal[1] && state[2] == goal[2];
-}
-
-bool is_goal_3(const std::vector<size_t> &state, const std::vector<size_t> &goal)
-{
-    return state[3] == goal[3] && state[6] == goal[6];
-}
-
-bool is_goal_4(const std::vector<size_t> &state, const std::vector<size_t> &goal)
-{
-    return state[4] == goal[4] && state[5] == goal[5] && state[7] == goal[7] && state[8] == goal[8];
 }
