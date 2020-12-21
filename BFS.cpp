@@ -5,8 +5,8 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
     if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "*************************\n";
-        std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle" << std::endl;
-        std::cout << "*************************" << std::endl;
+        std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
+        std::cout << "*************************\n";
     }
     else
     {
@@ -635,16 +635,16 @@ bool is_goal(const std::vector<size_t> &state, const std::vector<size_t> &goal)
 void solved(size_t steps, const std::vector<size_t> &goal)
 {
     std::cout << "*************************\n";
-    std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << steps << std::endl;
-    std::cout << "*************************" << std::endl;
+    std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << steps;
+    std::cout << "\n*************************\n";
     print_puzzle(steps, goal);
-    std::cout << "\n*************************" << std::endl;
+    std::cout << "\n*************************\n";
 }
 
 void print_puzzle(size_t steps, const std::vector<size_t> &state)
 {
     std::cout << std::endl;
-    std::cout << "Step " << steps << ":" << std::endl;
+    std::cout << "Step " << steps << ":\n";
     for (size_t i{}; i < 9; i++)
     {
         if (state[i] == 0)
@@ -652,7 +652,7 @@ void print_puzzle(size_t steps, const std::vector<size_t> &state)
         else
             std::cout << state[i];
         if (i % 3 == 2)
-            std::cout << std::endl;
+            std::cout << "\n";
         else
             std::cout << " ";
     }
