@@ -9,7 +9,7 @@ $(TARGET): $(OBJECTS)
 	$(CXX) $(LXXFLAGS) -o $(TARGET) $(OBJECTS)
 BFS.o: BFS.cpp BFS.h
 	$(CXX) $(CXXFLAGS) BFS.cpp -o BFS.o
-main.o: main.cpp BFS2d.cpp BFS2d.h BFS.cpp BFS.h
+main.o: main.cpp BFS.cpp BFS.h
 	$(CXX) $(CXXFLAGS) main.cpp -o main.o
 clean:
 	rm -f $(TARGET) $(OBJECTS)
