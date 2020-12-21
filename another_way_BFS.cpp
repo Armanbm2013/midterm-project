@@ -29,7 +29,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                 else
                 {
                     std::queue<std::vector<size_t>> queue1{};    //a queue for to find a node a that is_goal_1(a,goal) is true
-                    std::vector<std::vector<size_t>> bfs1{init}; //a vector to store all of traveresed states until finding the node a that is_goal_1(a,goal) is true
+                    std::vector<std::vector<size_t>> bfs1{temp}; //a vector to store all of traveresed states until finding the node a that is_goal_1(a,goal) is true
+                    queue1.push(bfs1.back());
+                    bool in_bfs1{false};
                     while (true)
                     {
                     }
