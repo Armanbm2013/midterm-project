@@ -43,6 +43,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                 {
                                     std::vector<size_t> temp1 = queue.front();
                                     queue4.pop();
+                                    for (size_t j{}; j < 9; j++)
+                                        if (temp[j] == 0)
+                                            i = j;
                                     if (i == 4)
                                     {
                                         std::vector<size_t> state1 = std::vector<size_t>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
@@ -264,6 +267,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                             {
                                 std::vector<size_t> temp1 = queue.front();
                                 queue3.pop();
+                                for (size_t j{}; j < 9; j++)
+                                    if (temp[j] == 0)
+                                        i = j;
                                 if (i == 3)
                                 {
                                     std::vector<size_t> state1 = std::vector<size_t>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
@@ -639,6 +645,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                         {
                             std::vector<size_t> temp1 = queue.front();
                             queue2.pop();
+                            for (size_t j{}; j < 9; j++)
+                                if (temp[j] == 0)
+                                    i = j;
                             if (i == 1)
                             {
                                 std::vector<size_t> state1 = std::vector<size_t>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
@@ -1168,6 +1177,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                     {
                         std::vector<size_t> temp1 = queue.front();
                         queue1.pop();
+                        for (size_t j{}; j < 9; j++)
+                            if (temp[j] == 0)
+                                i = j;
                         if (i == 0)
                         {
                             std::vector<size_t> state1 = std::vector<size_t>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
