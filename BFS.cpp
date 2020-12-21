@@ -13,7 +13,6 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
         std::queue<std::vector<size_t>> queue{};    //we use a queue to check each level of the graph in order
         std::vector<std::vector<size_t>> bfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         queue.push(bfs.back());
-        size_t depth{};
         size_t steps{};
         bool in_bfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
