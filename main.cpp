@@ -1,4 +1,5 @@
 #include "BFS.h"
+#include "another_way_BFS.h"
 
 int main()
 {
@@ -8,6 +9,6 @@ int main()
     std::vector<size_t> c{3, 2, 0, 7, 5, 6, 4, 1, 8};
     std::vector<size_t> d{1, 2, 3, 4, 8, 0, 7, 6, 5};
     std::vector<size_t> non_solvable{8, 1, 2, 0, 4, 3, 7, 6, 5};
-    BFS(a, goal);
+    another_algorithm_BFS(goal, goal);
     return 0;
 }
