@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <stack>
 
 void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal);
 bool is_goal(const std::vector<size_t> &state, const std::vector<size_t> &goal);
