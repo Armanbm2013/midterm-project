@@ -48,8 +48,9 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                     for (size_t j{}; j < 9; j++)
                                     {
                                         std::cout << j << "\n";
-                                        if (temp1[j] == 0)
-                                            i = j;
+                                        std::cout << i << "\n";
+                                        // if (temp1[j] == 0)
+                                        //     i = j;
                                         std::cout << "checked4\n";
                                     }
                                     std::cout << "checked3\n";
