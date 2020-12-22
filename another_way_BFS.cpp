@@ -15,19 +15,24 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
         queue.push(bfs.back());
         size_t steps{};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+        std::cout << "check1\n";
         while (true)
         {
+            std::cout << "check2\n";
             if (!queue.empty())
             {
+                std::cout << "check3\n";
                 std::vector<size_t> temp = queue.front();
                 queue.pop();
 
                 if (is_goal_1(temp, goal))
                 {
+                    std::cout << "check4\n";
                     if (is_goal_2(temp, goal))
                     {
                         if (is_goal_3(temp, goal))
                         {
+                            std::cout << "check5\n";
                             if (is_goal_4(temp, goal))
                             {
                                 solved(steps, goal);
