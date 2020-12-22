@@ -1,4 +1,5 @@
 #include "BFS.h"
+#include "another_way_BFS.h"
 
 void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
@@ -1805,4 +1806,24 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                 break;
         }
     }
+}
+
+bool is_goal_1(const std::vector<size_t> &state, const std::vector<size_t> &goal)
+{
+    return state[0] == goal[0];
+}
+
+bool is_goal_2(const std::vector<size_t> &state, const std::vector<size_t> &goal)
+{
+    return (state[1] == goal[1] && state[2] == goal[2]);
+}
+
+bool is_goal_3(const std::vector<size_t> &state, const std::vector<size_t> &goal)
+{
+    return (state[3] == goal[3] && state[6] == goal[6]);
+}
+
+bool is_goal_4(const std::vector<size_t> &state, const std::vector<size_t> &goal)
+{
+    return (state[4] == goal[4] && state[5] == goal[5] && state[7] == goal[7] && state[8] == goal[8]);
 }
