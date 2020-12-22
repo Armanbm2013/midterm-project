@@ -657,3 +657,26 @@ void print_puzzle(size_t steps, const std::vector<size_t> &state)
             std::cout << " ";
     }
 }
+
+//following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/"
+// A utility function to count inversions in given vector 'arr'
+int getInvCount(const std::vector<size_t> &arr)
+{
+    int inv_count = 0;
+    for (int i = 0; i < 9 - 1; i++)
+        for (int j = i + 1; j < 9; j++)
+            // Value 0 is used for empty space
+            if (arr[j] && arr[i] && arr[i] > arr[j])
+                inv_count++;
+    return inv_count;
+}
+
+// This function returns true if given 8 puzzle is solvable.
+bool isSolvable(const std::vector<size_t> &arr)
+{
+    // Count inversions in given 8 puzzle
+    int invCount = getInvCount(arr);
+
+    // return true if inversion count is even.
+    return (invCount % 2 == 0);
+}

@@ -3,7 +3,9 @@
 
 void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
-    if (init == goal) //when the initial puzzle is the goal puzzle!
+    if (!isSolvable(init))
+        std::cout << "This puzzle is not solvable\n";
+    else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
@@ -63,13 +65,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
-                                            print_puzzle(steps, state1);
                                             if (is_goal_4(state1, goal))
                                             {
-                                                bfs.push_back(state1);
-                                                queue.push(state1);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state1);
                                         }
                                         in_bfs4 = false;
 
@@ -88,13 +89,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
-                                            print_puzzle(steps, state2);
                                             if (is_goal_4(state2, goal))
                                             {
-                                                bfs.push_back(state2);
-                                                queue.push(state2);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state2);
                                         }
                                         in_bfs4 = false;
                                     }
@@ -115,13 +115,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
-                                            print_puzzle(steps, state1);
                                             if (is_goal_4(state1, goal))
                                             {
-                                                bfs.push_back(state1);
-                                                queue.push(state1);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state1);
                                         }
                                         in_bfs4 = false;
 
@@ -140,13 +139,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
-                                            print_puzzle(steps, state2);
                                             if (is_goal_4(state2, goal))
                                             {
-                                                bfs.push_back(state2);
-                                                queue.push(state2);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state2);
                                         }
                                         in_bfs4 = false;
                                     }
@@ -167,13 +165,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
-                                            print_puzzle(steps, state1);
                                             if (is_goal_4(state1, goal))
                                             {
-                                                bfs.push_back(state1);
-                                                queue.push(state1);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state1);
                                         }
                                         in_bfs4 = false;
 
@@ -192,13 +189,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
-                                            print_puzzle(steps, state2);
                                             if (is_goal_4(state2, goal))
                                             {
-                                                bfs.push_back(state2);
-                                                queue.push(state2);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state2);
                                         }
                                         in_bfs4 = false;
                                     }
@@ -219,13 +215,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
-                                            print_puzzle(steps, state1);
                                             if (is_goal_4(state1, goal))
                                             {
-                                                bfs.push_back(state1);
-                                                queue.push(state1);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state1);
                                         }
                                         in_bfs4 = false;
 
@@ -244,13 +239,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                             steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
-                                            print_puzzle(steps, state2);
                                             if (is_goal_4(state2, goal))
                                             {
-                                                bfs.push_back(state2);
-                                                queue.push(state2);
+                                                solved(steps, goal);
                                                 break;
                                             }
+                                            print_puzzle(steps, state2);
                                         }
                                         in_bfs4 = false;
                                     }
