@@ -21,7 +21,10 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
             {
                 std::vector<size_t> temp = queue.front();
                 queue.pop();
-
+                for (size_t j{}; j < 9; j++)
+                {
+                    std::cout << temp[j] << "\n";
+                }
                 if (is_goal_1(temp, goal))
                 {
                     if (is_goal_2(temp, goal))
@@ -45,11 +48,12 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                     queue4.pop();
                                     for (size_t j{}; j < 9; j++)
                                     {
-                                        std::cout << j << "\n";
-                                        std::cout << i << "\n";
-                                        if (temp1[j] == 0)
-                                            i = j;
-                                        std::cout << "checked\n";
+                                        // std::cout << j << "\n";
+                                        // std::cout << i << "\n";
+                                        // if (temp1[j] == 0)
+                                        //     i = j;
+                                        std::cout << temp1[j] << "\n";
+                                        // std::cout << "checked\n";
                                     }
                                     if (i == 4)
                                     {
