@@ -41,19 +41,16 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                 bool in_bfs4{false};
                                 while (true)
                                 {
-                                    std::cout << "checked1\n";
                                     std::vector<size_t> temp1 = queue.front();
                                     queue4.pop();
-                                    std::cout << "checked2\n";
                                     for (size_t j{}; j < 9; j++)
                                     {
                                         std::cout << j << "\n";
                                         std::cout << i << "\n";
-                                        // if (temp1[j] == 0)
-                                        //     i = j;
-                                        std::cout << "checked4\n";
+                                        if (temp1[j] == 0)
+                                            i = j;
+                                        std::cout << "checked\n";
                                     }
-                                    std::cout << "checked3\n";
                                     if (i == 4)
                                     {
                                         std::vector<size_t> state1 = std::vector<size_t>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
