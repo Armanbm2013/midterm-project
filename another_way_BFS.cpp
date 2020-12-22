@@ -43,14 +43,8 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                                     std::vector<size_t> temp1 = queue4.front();
                                     queue4.pop();
                                     for (size_t j{}; j < 9; j++)
-                                    {
-                                        // std::cout << j << "\n";
-                                        // std::cout << i << "\n";
-                                        // if (temp1[j] == 0)
-                                        //     i = j;
-                                        std::cout << temp1[j] << "\n";
-                                        // std::cout << "checked\n";
-                                    }
+                                        if (temp1[j] == 0)
+                                            i = j;
                                     if (i == 4)
                                     {
                                         std::vector<size_t> state1 = std::vector<size_t>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
@@ -270,7 +264,7 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                             bool in_bfs3{false};
                             while (true)
                             {
-                                std::vector<size_t> temp1 = queue.front();
+                                std::vector<size_t> temp1 = queue3.front();
                                 queue3.pop();
                                 for (size_t j{}; j < 9; j++)
                                     if (temp1[j] == 0)
@@ -648,7 +642,7 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                         bool in_bfs2{false};
                         while (true)
                         {
-                            std::vector<size_t> temp1 = queue.front();
+                            std::vector<size_t> temp1 = queue2.front();
                             queue2.pop();
                             for (size_t j{}; j < 9; j++)
                                 if (temp1[j] == 0)
@@ -1180,7 +1174,7 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
                     bool in_bfs1{false};
                     while (true)
                     {
-                        std::vector<size_t> temp1 = queue.front();
+                        std::vector<size_t> temp1 = queue1.front();
                         queue1.pop();
                         for (size_t j{}; j < 9; j++)
                             if (temp1[j] == 0)
