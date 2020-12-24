@@ -2,7 +2,9 @@
 
 void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
-    if (init == goal) //when the initial puzzle is the goal puzzle!
+    if (!isSolvable(init))
+        std::cout << "This puzzle is not solvable\n";
+    else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
