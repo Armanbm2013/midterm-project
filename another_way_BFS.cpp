@@ -4,7 +4,11 @@
 void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
     if (!isSolvable(init))
+    {
+        std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
+        std::cout << "*************************\n";
+    }
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "*************************\n";
