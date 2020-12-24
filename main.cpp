@@ -9,6 +9,6 @@ int main()
     std::vector<size_t> c{1, 5, 7, 6, 8, 4, 3, 0, 2};
     std::vector<size_t> d{3, 5, 6, 8, 1, 4, 0, 7, 2};
     std::vector<size_t> non_solvable{8, 1, 2, 0, 4, 3, 7, 6, 5};
-    another_algorithm_BFS(non_solvable, goal);
+    BFS(c, goal);
     return 0;
 }
