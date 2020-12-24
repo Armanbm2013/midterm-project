@@ -4,15 +4,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
     if (!isSolvable(init))
     {
+        std::cout << "\033[0;31m"; //red
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
+        std::cout << "\033[0;37m"; //gray
     }
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
+        std::cout << "\033[0;32m"; //green
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
+        std::cout << "\033[0;37m"; //gray
     }
     else
     {
@@ -782,17 +786,31 @@ bool is_goal(const std::vector<size_t> &state, const std::vector<size_t> &goal)
 
 void solved(size_t steps, const std::vector<size_t> &goal)
 {
+    std::cout << "\033[0;32m"; //green
     std::cout << "*************************\n";
     std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << steps;
     std::cout << "\n*************************\n";
-    print_puzzle(steps, goal);
+    std::cout << "\nStep " << steps << ":\n";
+    for (size_t i{}; i < 9; i++)
+    {
+        if (goal[i] == 0)
+            std::cout << " ";
+        else
+            std::cout << goal[i];
+        if (i % 3 == 2)
+            std::cout << "\n";
+        else
+            std::cout << " ";
+    }
     std::cout << "\n*************************\n";
+    std::cout << "\033[0;37m"; //gray
 }
 
 void print_puzzle(size_t steps, const std::vector<size_t> &state)
 {
-    std::cout << std::endl;
-    std::cout << "Step " << steps << ":\n";
+    std::cout << "\033[0;31m"; //red
+    std::cout << "\nStep " << steps << ":\n";
+    std::cout << "\033[0;34m"; //blue
     for (size_t i{}; i < 9; i++)
     {
         if (state[i] == 0)

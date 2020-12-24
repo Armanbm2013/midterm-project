@@ -5,15 +5,19 @@ void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<si
 {
     if (!isSolvable(init))
     {
+        std::cout << "\033[0;31m"; //red
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
+        std::cout << "\033[0;37m"; //gray
     }
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
+        std::cout << "\033[0;32m"; //green
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
+        std::cout << "\033[0;37m"; //gray
     }
     else
     {
