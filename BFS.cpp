@@ -31,13 +31,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -55,13 +61,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -82,13 +94,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -106,13 +124,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -130,13 +154,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state3)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state3[0])
+                            if (puzzle[1] == state3[1])
+                                if (puzzle[2] == state3[2])
+                                    if (puzzle[3] == state3[3])
+                                        if (puzzle[4] == state3[4])
+                                            if (puzzle[5] == state3[5])
+                                                if (puzzle[6] == state3[6])
+                                                    if (puzzle[7] == state3[7])
+                                                        if (puzzle[8] == state3[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -156,13 +186,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -180,13 +216,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -206,13 +248,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -230,13 +278,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -254,13 +308,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state3)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state3[0])
+                            if (puzzle[1] == state3[1])
+                                if (puzzle[2] == state3[2])
+                                    if (puzzle[3] == state3[3])
+                                        if (puzzle[4] == state3[4])
+                                            if (puzzle[5] == state3[5])
+                                                if (puzzle[6] == state3[6])
+                                                    if (puzzle[7] == state3[7])
+                                                        if (puzzle[8] == state3[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -280,13 +340,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -304,13 +370,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -328,13 +400,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state3)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state3[0])
+                            if (puzzle[1] == state3[1])
+                                if (puzzle[2] == state3[2])
+                                    if (puzzle[3] == state3[3])
+                                        if (puzzle[4] == state3[4])
+                                            if (puzzle[5] == state3[5])
+                                                if (puzzle[6] == state3[6])
+                                                    if (puzzle[7] == state3[7])
+                                                        if (puzzle[8] == state3[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -352,13 +430,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state4 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state4)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state4[0])
+                            if (puzzle[1] == state4[1])
+                                if (puzzle[2] == state4[2])
+                                    if (puzzle[3] == state4[3])
+                                        if (puzzle[4] == state4[4])
+                                            if (puzzle[5] == state4[5])
+                                                if (puzzle[6] == state4[6])
+                                                    if (puzzle[7] == state4[7])
+                                                        if (puzzle[8] == state4[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -378,13 +462,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -402,13 +492,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -426,13 +522,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state3)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state3[0])
+                            if (puzzle[1] == state3[1])
+                                if (puzzle[2] == state3[2])
+                                    if (puzzle[3] == state3[3])
+                                        if (puzzle[4] == state3[4])
+                                            if (puzzle[5] == state3[5])
+                                                if (puzzle[6] == state3[6])
+                                                    if (puzzle[7] == state3[7])
+                                                        if (puzzle[8] == state3[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -452,13 +554,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -476,13 +584,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -502,13 +616,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -526,13 +646,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -550,13 +676,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state3)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state3[0])
+                            if (puzzle[1] == state3[1])
+                                if (puzzle[2] == state3[2])
+                                    if (puzzle[3] == state3[3])
+                                        if (puzzle[4] == state3[4])
+                                            if (puzzle[5] == state3[5])
+                                                if (puzzle[6] == state3[6])
+                                                    if (puzzle[7] == state3[7])
+                                                        if (puzzle[8] == state3[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -576,13 +708,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 {
                     std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state1)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state1[0])
+                            if (puzzle[1] == state1[1])
+                                if (puzzle[2] == state1[2])
+                                    if (puzzle[3] == state1[3])
+                                        if (puzzle[4] == state1[4])
+                                            if (puzzle[5] == state1[5])
+                                                if (puzzle[6] == state1[6])
+                                                    if (puzzle[7] == state1[7])
+                                                        if (puzzle[8] == state1[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
@@ -600,13 +738,19 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
                     std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7]};
                     for (std::vector<size_t> &puzzle : bfs)
-                    {
-                        if (puzzle == state2)
-                        {
-                            in_bfs = true;
-                            break;
-                        }
-                    }
+                        if (puzzle[0] == state2[0])
+                            if (puzzle[1] == state2[1])
+                                if (puzzle[2] == state2[2])
+                                    if (puzzle[3] == state2[3])
+                                        if (puzzle[4] == state2[4])
+                                            if (puzzle[5] == state2[5])
+                                                if (puzzle[6] == state2[6])
+                                                    if (puzzle[7] == state2[7])
+                                                        if (puzzle[8] == state2[8])
+                                                        {
+                                                            in_bfs = true;
+                                                            break;
+                                                        }
 
                     if (!in_bfs)
                     {
