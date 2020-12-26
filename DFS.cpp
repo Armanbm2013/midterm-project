@@ -29,7 +29,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
     }
 }
 
-void Process_DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, std::vector<std::vector<size_t>> &dfs, size_t &steps)
+void Process_DFS(std::vector<std::vector<size_t>> &dfs, std::stack<std::vector<size_t>> &stack, size_t &steps)
 {
     bool in_bfs{false};
     size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
