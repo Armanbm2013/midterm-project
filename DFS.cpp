@@ -24,6 +24,13 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
         std::stack<std::vector<size_t>> stack{};    //we use a stack to check each Depth of the graph in order
         std::vector<std::vector<size_t>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         stack.push(dfs.back());
-        Process_DFS(init, goal, dfs, stack);
+        size_t steps{};
+        Process_DFS(dfs, stack, steps);
     }
+}
+
+void Process_DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, std::vector<std::vector<size_t>> &dfs, size_t &steps)
+{
+    bool in_bfs{false};
+    size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 }
