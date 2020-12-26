@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++20 -Wall -c
 LXXFLAGS = -std=c++20
-OBJECTS = BFS.o another_way_BFS.o apmidproject.o main.o
+OBJECTS = BFS.o another_way_BFS.o apmidproject.o DFS.o main.o
 TARGET = main
 
 
@@ -13,7 +13,9 @@ another_way_BFS.o: another_way_BFS.cpp another_way_BFS.h BFS.h BFS.cpp
 	$(CXX) $(CXXFLAGS) another_way_BFS.cpp -o another_way_BFS.o
 apmidproject.o: apmidproject.cpp apmidproject.h
 	$(CXX) $(CXXFLAGS) apmidproject.cpp -o apmidproject.o
-main.o: main.cpp BFS.cpp BFS.h another_way_BFS.cpp another_way_BFS.h apmidproject.cpp apmidproject.h
+DFS.o: DFS.cpp DFS.h
+	$(CXX) $(CXXFLAGS) DFS.cpp -o DFS.o
+main.o: main.cpp BFS.cpp BFS.h another_way_BFS.cpp another_way_BFS.h apmidproject.cpp apmidproject.h DFS.cpp DFS.h
 	$(CXX) $(CXXFLAGS) main.cpp -o main.o
 clean:
 	rm -f $(TARGET) $(OBJECTS)
