@@ -33,6 +33,9 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 {
     bool in_dfs{false};
     size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+    std::cout << "stack size: " << stack.size() << "\n";
+    if (stack.size() > 25)
+        return false;
     std::vector<size_t> temp = stack.top();
     stack.pop();
     for (size_t j{}; j < 9; j++)
@@ -62,6 +65,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -73,6 +77,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             print_puzzle(steps, state1);
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
+            stack.pop();
         }
         in_dfs = false;
 
@@ -94,6 +99,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -129,6 +135,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -161,6 +168,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -193,6 +201,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state3);
             stack.push(state3);
@@ -227,6 +236,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -259,6 +269,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -293,6 +304,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -325,6 +337,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -357,6 +370,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state3);
             stack.push(state3);
@@ -391,6 +405,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -423,6 +438,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -455,6 +471,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state3);
             stack.push(state3);
@@ -487,6 +504,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state4);
             stack.push(state4);
@@ -521,6 +539,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -553,6 +572,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -585,6 +605,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state3);
             stack.push(state3);
@@ -619,6 +640,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -651,6 +673,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -685,6 +708,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -717,6 +741,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
@@ -749,6 +774,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state3);
             stack.push(state3);
@@ -783,6 +809,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state1);
             stack.push(state1);
@@ -815,6 +842,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
 
         if (!in_dfs)
         {
+            stack.push(temp);
             steps++;
             dfs.push_back(state2);
             stack.push(state2);
