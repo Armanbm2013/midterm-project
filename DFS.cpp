@@ -1,7 +1,7 @@
 #include "DFS.h"
 #include "BFS.h"
 
-void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const size_t &depth_limit)
+void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit)
 {
     if (!isSolvable(init))
     {
@@ -11,6 +11,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
         std::cout << "*************************\n";
         std::cout << "\033[0;37m"; //gray
     }
+
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "\033[0;32m"; //green
@@ -19,21 +20,24 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
         std::cout << "*************************\n";
         std::cout << "\033[0;37m"; //gray
     }
+
     else
     {
         std::stack<std::vector<size_t>> stack{};    //we use a stack to check each Depth of the graph in order
         std::vector<std::vector<size_t>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         stack.push(dfs.back());
+
         size_t steps{};
         bool in_dfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+
         while (true)
         {
             std::vector<size_t> temp = stack.top();
             stack.pop();
 
             if (depth_limit != -1) //if depth limit was given by the user
-                if (stack.size() > depth_limit)
+                if (stack.size() > static_cast<size_t>(depth_limit))
                     continue;
 
             for (size_t j{}; j < 9; j++)
@@ -208,6 +212,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 2)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
@@ -274,6 +279,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 3)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8]};
@@ -372,6 +378,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 4)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8]};
@@ -502,6 +509,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 5)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8]};
@@ -600,6 +608,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 6)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8]};
@@ -666,6 +675,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 7)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8]};
@@ -764,6 +774,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
                 }
                 in_dfs = false;
             }
+
             else if (i == 8)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5]};
