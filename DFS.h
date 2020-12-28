@@ -6,6 +6,6 @@
 #include <stack>
 
 void Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t>> &dfs, std::stack<std::vector<size_t>> &stack, size_t &steps);
-void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal);
+void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const size_t &depth);
 
 #endif
