@@ -31,13 +31,12 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 
 bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t>> &dfs, std::stack<std::vector<size_t>> &stack, size_t &steps)
 {
-    std::cout << "hello\n";
     bool in_dfs{false};
     size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
     std::vector<size_t> temp = stack.top();
     stack.pop();
-    std::cout << "stack size: " << stack.size() << "\n";
-    if (stack.size() > 15)
+    std::cout << "starting stack size: " << stack.size() << "\n";
+    if (stack.size() > 2109)
         return false;
     for (size_t j{}; j < 9; j++)
         if (temp[j] == 0)
@@ -79,6 +78,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -113,6 +113,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -150,6 +151,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -184,6 +186,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -218,6 +221,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -254,6 +258,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -288,6 +293,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -324,6 +330,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -358,6 +365,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -392,6 +400,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -428,6 +437,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -462,6 +472,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -496,6 +507,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -530,6 +542,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -566,6 +579,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -600,6 +614,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -634,6 +649,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -670,6 +686,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -704,6 +721,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -740,6 +758,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -774,6 +793,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -808,6 +828,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
@@ -844,6 +865,7 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
 
@@ -878,8 +900,10 @@ bool Process_DFS(const std::vector<size_t> &goal, std::vector<std::vector<size_t
             if (Process_DFS(goal, dfs, stack, steps))
                 return true;
             stack.pop();
+            std::cout << "middle stack size: " << stack.size() << "\n";
         }
         in_dfs = false;
     }
+
     return false;
 }
