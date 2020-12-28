@@ -1,6 +1,6 @@
 #include "BFS.h"
 
-void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
+void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit)
 {
     if (!isSolvable(init))
     {
@@ -10,6 +10,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
         std::cout << "*************************\n";
         std::cout << "\033[0;37m"; //gray
     }
+
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "\033[0;32m"; //green
@@ -18,24 +19,29 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
         std::cout << "*************************\n";
         std::cout << "\033[0;37m"; //gray
     }
+
     else
     {
         std::queue<std::vector<size_t>> queue{};    //we use a queue to check each level of the graph in order
         std::vector<std::vector<size_t>> bfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         queue.push(bfs.back());
+
         size_t steps{};
         bool in_bfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+
         while (true)
         {
             std::vector<size_t> temp = queue.front();
             queue.pop();
+
             for (size_t j{}; j < 9; j++)
                 if (temp[j] == 0)
                 {
                     i = j;
                     break;
                 }
+
             if (i == 0)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
@@ -191,6 +197,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 2)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]};
@@ -253,6 +260,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 3)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8]};
@@ -345,6 +353,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 4)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8]};
@@ -467,6 +476,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 5)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8]};
@@ -559,6 +569,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 6)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8]};
@@ -621,6 +632,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 7)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8]};
@@ -713,6 +725,7 @@ void BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
                 }
                 in_bfs = false;
             }
+
             else if (i == 8)
             {
                 std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5]};
