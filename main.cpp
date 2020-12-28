@@ -27,6 +27,9 @@ int main()
     // std::cout << "******Time Taken To Solve The Puzzle: " << duration.count() << " Seconds******" << std::endl;
     std::vector<size_t> goal{1, 2, 3, 4, 5, 6, 7, 8, 0};
     std::vector<size_t> test1{1, 2, 3, 4, 6, 8, 0, 7, 5};
-    DFS(test1, goal);
+    std::vector<size_t> test2{2, 3, 0, 1, 5, 6, 4, 7, 8};
+    std::vector<size_t> test3{1, 2, 3, 4, 6, 8, 7, 5, 0};
+    std::vector<size_t> test4{1, 2, 3, 0, 5, 6, 4, 7, 8};
+    DFS(test3, goal, -1);
     return 0;
 }
