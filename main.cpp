@@ -1,21 +1,32 @@
 #include <chrono>
 #include "BFS.h"
 #include "another_way_BFS.h"
+#include "apmidproject.h"
+#include "DFS.h"
 
 int main()
 {
-    auto start = std::chrono::high_resolution_clock::now();
+    // auto start = std::chrono::high_resolution_clock::now();
+
+    // hello_game();
+    // std::vector<size_t> first_state{own_8_puzzle_vs_random()};
+    // std::vector<size_t> goal{input_goal_vs_default_goal()};
+
+    // size_t choice{};
+    // std::cout << "\nWhich algorithm do you want to solve your puzzle with?:\n\n";
+    // std::cout << "1.BFS\n2.Fast BFS\n3.DFS\nInput the number of algorithm you choose: ";
+    // std::cin >> choice;
+    // while (choice != 1 && choice != 2 && choice != 3)
+    // {
+    //     std::cout << "Invalid input, try again: ";
+    //     std::cin >> choice;
+    // }
+
+    // auto stop = std::chrono::high_resolution_clock::now();
+    // auto duration = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+    // std::cout << "******Time Taken To Solve The Puzzle: " << duration.count() << " Seconds******" << std::endl;
     std::vector<size_t> goal{1, 2, 3, 4, 5, 6, 7, 8, 0};
-    std::vector<size_t> a{1, 2, 3, 4, 8, 0, 7, 6, 5};
-    std::vector<size_t> b{1, 2, 3, 6, 0, 4, 8, 5, 7};
-    std::vector<size_t> c{1, 5, 7, 6, 8, 4, 3, 0, 2};
-    std::vector<size_t> d{3, 5, 6, 8, 1, 4, 0, 7, 2};
-    std::vector<size_t> e{7, 4, 2, 1, 3, 8, 0, 5, 6};
-    std::vector<size_t> f{7, 8, 0, 5, 6, 1, 4, 2, 3};
-    std::vector<size_t> non_solvable{8, 1, 2, 0, 4, 3, 7, 6, 5};
-    BFS(b, goal);
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-    std::cout << "******Time Taken To Solve The Puzzle: " << duration.count() << " Seconds******" << std::endl;
+    std::vector<size_t> test1{1, 2, 3, 4, 6, 8, 0, 7, 5};
+    DFS(test1, goal);
     return 0;
 }
