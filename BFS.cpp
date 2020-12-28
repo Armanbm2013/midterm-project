@@ -822,6 +822,7 @@ void print_puzzle(size_t steps, const std::vector<size_t> &state)
         else
             std::cout << " ";
     }
+    std::cout << "\033[0;37m"; //gray
 }
 
 //following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/"
