@@ -3,7 +3,7 @@
 
 void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit)
 {
-    if (!isSolvable(init))
+    if (!isSolvable(init, goal))
     {
         std::cout << "\033[0;31m"; //red
         std::cout << "*************************\n";

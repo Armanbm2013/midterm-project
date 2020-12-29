@@ -3,7 +3,7 @@
 
 void another_algorithm_BFS(const std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
-    if (!isSolvable(init))
+    if (!isSolvable(init, goal))
     {
         std::cout << "\033[0;31m"; //red
         std::cout << "*************************\n";

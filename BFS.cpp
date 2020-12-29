@@ -2,7 +2,7 @@
 
 void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit)
 {
-    if (!isSolvable(init))
+    if (!isSolvable(init, goal))
     {
         std::cout << "\033[0;31m"; //red
         std::cout << "*************************\n";
@@ -844,7 +844,7 @@ void print_puzzle(size_t steps, const std::vector<size_t> &state)
     std::cout << "\033[0;37m"; //gray
 }
 
-//following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/"
+//following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/" ***with a little modification***
 // A utility function to count inversions in given vector 'arr'
 int getInvCount(const std::vector<size_t> &arr)
 {
@@ -858,11 +858,14 @@ int getInvCount(const std::vector<size_t> &arr)
 }
 
 // This function returns true if given 8 puzzle is solvable.
-bool isSolvable(const std::vector<size_t> &arr)
+bool isSolvable(const std::vector<size_t> &arr, const std::vector<size_t> &goal)
 {
     // Count inversions in given 8 puzzle
     int invCount = getInvCount(arr);
 
+    // Count inversions in given 8 puzzle
+    int invCount_goal = getInvCount(goal);
+
     // return true if inversion count is even.
-    return (invCount % 2 == 0);
+    return (invCount % 2 == invCount_goal % 2);
 }
