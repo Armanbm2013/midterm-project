@@ -5,6 +5,6 @@
 #include <vector>
 #include <stack>
 
-void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit = -1);
+void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit = -1);
 
 #endif
