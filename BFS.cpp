@@ -30,6 +30,7 @@ void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
         size_t steps{};
         bool in_bfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+
         print_puzzle(steps, init);
         while (!queue.empty())
         {
