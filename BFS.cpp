@@ -800,7 +800,17 @@ void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
 bool is_goal(const std::vector<size_t> &state, const std::vector<size_t> &goal)
 {
-    return state == goal;
+    if (goal[0] == state[0])
+        if (goal[1] == state[1])
+            if (goal[2] == state[2])
+                if (goal[3] == state[3])
+                    if (goal[4] == state[4])
+                        if (goal[5] == state[5])
+                            if (goal[6] == state[6])
+                                if (goal[7] == state[7])
+                                    if (goal[8] == state[8])
+                                        return true;
+    return false;
 }
 
 void solved(size_t steps, const std::vector<size_t> &goal)
