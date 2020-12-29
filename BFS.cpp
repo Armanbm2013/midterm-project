@@ -32,14 +32,14 @@ void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
         print_puzzle(steps, init);
-        while (!queue.empty())
+        while (true)
         {
             std::vector<size_t> temp = queue.front();
             queue.pop();
 
             if (depth_limit != -1) //if depth limit was given by the user
                 if (temp[9] >= static_cast<size_t>(depth_limit))
-                    continue;
+                    break;
 
             for (size_t j{}; j < 9; j++)
                 if (temp[j] == 0)
