@@ -31,7 +31,7 @@ void DFS(const std::vector<size_t> &init, const std::vector<size_t> &goal, const
         bool in_dfs{false};
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
-        while (true)
+        while (!stack.empty())
         {
             std::vector<size_t> temp = stack.top();
             stack.pop();
