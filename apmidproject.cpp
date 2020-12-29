@@ -28,7 +28,7 @@ std::vector<size_t> own_8_puzzle_vs_random()
 
     while (choice != 1 && choice != 2)
     {
-        std::cout << "Invalid input, try again: ";
+        std::cout << "Invalid choice, try again: ";
         std::cin >> choice;
     }
 
@@ -88,7 +88,7 @@ std::vector<size_t> own_8_puzzle_vs_random()
 
 std::vector<size_t> input_goal_vs_default_goal()
 {
-    std::cout << "would you like to enter your goal state or do you want to use the deafault?\n\n"
+    std::cout << "would you like to enter your goal state or do you want to use the default?\n\n"
               << "1.your goal state\n2.default\n";
 
     size_t choice{};
@@ -102,7 +102,7 @@ std::vector<size_t> input_goal_vs_default_goal()
 
     std::vector<size_t> goal;
 
-    if (choice == 1)
+    if (choice == 1) //custom goal
     {
         size_t a{}, b{}, c{};
         std::cout << "Enter your first row of the goal state in order, the numbers should range from zero to 8(input empty space by 0): ";
@@ -138,7 +138,7 @@ std::vector<size_t> input_goal_vs_default_goal()
         goal.push_back(b);
         goal.push_back(c);
     }
-    else if (choice == 2)
+    else //default goal
         goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
 
     return goal;
