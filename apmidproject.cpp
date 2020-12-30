@@ -227,17 +227,39 @@ void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal
         std::cout << "\033[0;37m"; //gray
         std::cin >> choice;
     }
-    if (choice == 1)
+
+    int depth_limit{};
+    size_t depth_choice{};
+    std::cout << "\\nnDo you want to set a depth limit?\n\n"
+              << "1.Yes\n2.No\n";
+    std::cin >> depth_choice;
+
+    while (depth_choice != 1 && depth_choice != 2)
     {
-        BFS(init, goal);
+        std::cout << "\033[0;31m"; //red
+        std::cout << "Invalid choice, try again: ";
+        std::cout << "\033[0;37m"; //gray
+        std::cin >> depth_choice;
     }
-    else if (choice == 2)
+    if (depth_choice == 1)
     {
-        another_algorithm_BFS(init, goal);
+        std::cout << "\n\nEnter Depth limit: ";
+        std::cin >> depth_limit;
+        if (choice == 1)
+            BFS(init, goal, depth_limit);
+        else if (choice == 2)
+            another_algorithm_BFS(init, goal);
+        else
+            DFS(init, goal, depth_limit);
     }
     else
     {
-        DFS(init, goal);
+        if (choice == 1)
+            BFS(init, goal);
+        else if (choice == 2)
+            another_algorithm_BFS(init, goal);
+        else
+            DFS(init, goal);
     }
 }
 
