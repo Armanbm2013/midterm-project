@@ -1,5 +1,8 @@
 #include "apmidproject.h"
 #include "time.h"
+#include "BFS.h"
+#include "DFS.h"
+#include "another_way_BFS.h"
 
 bool in_vec(const std::vector<size_t> &v, size_t a)
 {
@@ -142,4 +145,29 @@ std::vector<size_t> input_goal_vs_default_goal()
         goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
 
     return goal;
+}
+
+void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal)
+{
+    size_t choice{};
+    std::cout << "\nWhich algorithm do you want to solve your puzzle with?:\n\n";
+    std::cout << "1.BFS\n2.Fast BFS\n3.DFS\nInput the number of algorithm you choose: ";
+    std::cin >> choice;
+    while (choice != 1 && choice != 2 && choice != 3)
+    {
+        std::cout << "Invalid choice, try again: ";
+        std::cin >> choice;
+    }
+    if (choice == 1)
+    {
+        BFS(init, goal);
+    }
+    else if (choice == 2)
+    {
+        another_algorithm_BFS(init, goal);
+    }
+    else
+    {
+        DFS(init, goal);
+    }
 }
