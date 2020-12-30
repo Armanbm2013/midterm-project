@@ -816,7 +816,7 @@ bool is_goal(const std::vector<size_t> &state, const std::vector<size_t> &goal)
 void solved(size_t steps, const std::vector<size_t> &goal)
 {
     std::cout << "\033[0;32m"; //green
-    std::cout << "*************************\n";
+    std::cout << "\n*************************\n";
     std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << steps;
     std::cout << "\n*************************\n";
     std::cout << "\nStep " << steps << ":\n";
