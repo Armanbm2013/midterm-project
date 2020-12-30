@@ -24,7 +24,7 @@ void hello_game()
 std::vector<size_t> own_8_puzzle_vs_random()
 {
     std::cout << "Do you want to solve your own 8-puzzle or want to see how a random puzzle is solved?\n\n"
-              << "1.your own 8-puzzle\n2.a random 8-puzzle\n";
+              << "1.your own 8-puzzle\n2.a random 8-puzzle\nInput the number you choose: ";
 
     size_t choice{};
     std::cin >> choice;
@@ -86,13 +86,15 @@ std::vector<size_t> own_8_puzzle_vs_random()
         }
     }
 
+    print_puzzle(0, first_state);
+
     return first_state;
 }
 
 std::vector<size_t> input_goal_vs_default_goal()
 {
     std::cout << "would you like to enter your goal state or do you want to use the default?\n\n"
-              << "1.your goal state\n2.default\n";
+              << "1.your custom goal state\n2.default goal\nInput the number you choose: ";
 
     size_t choice{};
     std::cin >> choice;
@@ -150,8 +152,8 @@ std::vector<size_t> input_goal_vs_default_goal()
 void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal)
 {
     size_t choice{};
-    std::cout << "\nWhich algorithm do you want to solve your puzzle with?:\n\n";
-    std::cout << "1.BFS\n2.Fast BFS\n3.DFS\nInput the number of algorithm you choose: ";
+    std::cout << "\nWhich algorithm do you want to solve your puzzle with?\n\n";
+    std::cout << "1.BFS\n2.Fast BFS\n3.DFS\nInput the number you choose: ";
     std::cin >> choice;
     while (choice != 1 && choice != 2 && choice != 3)
     {
@@ -170,4 +172,21 @@ void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal
     {
         DFS(init, goal);
     }
+}
+
+bool continue_game()
+{
+    std::cout << "\n\n\n************************************************************\n"
+              << "Do you Want to play again?\n";
+    std::cout << "1.Yes\n2.No\nInput the number you choose: ";
+    size_t choice{};
+    std::cin >> choice;
+    while (choice != 1 && choice != 2)
+    {
+        std::cout << "Invalid choice, try again: ";
+        std::cin >> choice;
+    }
+    if (choice == 1)
+        return true;
+    return false;
 }
