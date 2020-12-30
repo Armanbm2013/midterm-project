@@ -33,7 +33,7 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
         size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
         print_puzzle(steps, init);
-        while (!stack.empty())
+        while (true)
         {
             std::vector<size_t> temp = stack.top();
             stack.pop();
@@ -842,6 +842,11 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                     continue;
                 }
                 in_dfs = false;
+            }
+            if (stack.empty())
+            {
+                std::cout << "No answers find till depth " << depth_limit << "\n";
+                break;
             }
         }
     }
