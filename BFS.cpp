@@ -39,7 +39,10 @@ void BFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             if (depth_limit != -1) //if depth limit was given by the user
                 if (temp[9] >= static_cast<size_t>(depth_limit))
+                {
+                    std::cout << "No answers find till depth " << depth_limit << "\n";
                     break;
+                }
 
             for (size_t j{}; j < 9; j++)
                 if (temp[j] == 0)
