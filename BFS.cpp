@@ -25,7 +25,7 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         init.push_back(0);                       //This is the depth level of the Node
         std::queue<std::vector<int>> queue{};    //we use a queue to check each level of the graph in order
         std::vector<std::vector<int>> bfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
-        queue.push(bfs.back());
+        queue.push(init);
 
         int steps{};
         bool in_bfs{false};

@@ -26,7 +26,7 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         init.push_back(0);                       //This is the depth level of the Node
         std::stack<std::vector<int>> stack{};    //we use a stack to check each Depth of the graph in order
         std::vector<std::vector<int>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
-        stack.push(dfs.back());
+        stack.push(init);
 
         int steps{};
         bool in_dfs{false};
