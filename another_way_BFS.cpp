@@ -1,7 +1,7 @@
 #include "BFS.h"
 #include "another_way_BFS.h"
 
-void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> &goal)
+void another_algorithm_BFS(std::vector<int> &init, const std::vector<int> &goal)
 {
     if (!isSolvable(init, goal))
     {
@@ -19,11 +19,14 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
         std::cout << "*************************\n";
         std::cout << "\033[0;37m"; //gray
     }
+
     else
     {
+        init.push_back(0);                       //This is the depth level of the Node
         std::queue<std::vector<int>> queue{};    //we use a queue to check each level of the graph in order
         std::vector<std::vector<int>> bfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         queue.push(bfs.back());
+
         int steps{};
         int i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
         while (true)
@@ -32,6 +35,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
             {
                 std::vector<int> temp = queue.front();
                 queue.pop();
+
                 if (is_goal_1(temp, goal))
                 {
                     if (is_goal_2(temp, goal))
@@ -58,7 +62,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                             i = j;
                                     if (i == 4)
                                     {
-                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state1)
@@ -82,7 +86,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                         }
                                         in_bfs4 = false;
 
-                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state2)
@@ -108,7 +112,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     else if (i == 5)
                                     {
-                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state1)
@@ -132,7 +136,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                         }
                                         in_bfs4 = false;
 
-                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state2)
@@ -158,7 +162,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     else if (i == 7)
                                     {
-                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state1)
@@ -182,7 +186,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                         }
                                         in_bfs4 = false;
 
-                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state2)
@@ -208,7 +212,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     else if (i == 8)
                                     {
-                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state1)
@@ -232,7 +236,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                         }
                                         in_bfs4 = false;
 
-                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                         for (std::vector<int> &puzzle : bfs4)
                                         {
                                             if (puzzle == state2)
@@ -274,7 +278,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                         i = j;
                                 if (i == 3)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -299,7 +303,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -326,7 +330,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 else if (i == 4)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -351,7 +355,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -376,7 +380,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                    std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state3)
@@ -403,7 +407,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 else if (i == 5)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -428,7 +432,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -455,7 +459,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 else if (i == 6)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -480,7 +484,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -507,7 +511,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 else if (i == 7)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -532,7 +536,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -557,7 +561,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                    std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state3)
@@ -584,7 +588,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 else if (i == 8)
                                 {
-                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state1)
@@ -609,7 +613,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     }
                                     in_bfs3 = false;
 
-                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                     for (std::vector<int> &puzzle : bfs3)
                                     {
                                         if (puzzle == state2)
@@ -652,7 +656,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                     i = j;
                             if (i == 1)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -677,7 +681,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -704,7 +708,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 2)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -729,7 +733,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -756,7 +760,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 3)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -781,7 +785,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -808,7 +812,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 4)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -833,7 +837,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -858,7 +862,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state3)
@@ -883,7 +887,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state4)
@@ -910,7 +914,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 5)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -935,7 +939,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -960,7 +964,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state3)
@@ -987,7 +991,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 6)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -1012,7 +1016,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -1039,7 +1043,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 7)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -1064,7 +1068,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -1089,7 +1093,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state3)
@@ -1116,7 +1120,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             else if (i == 8)
                             {
-                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                                std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state1)
@@ -1141,7 +1145,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 }
                                 in_bfs2 = false;
 
-                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                                std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                                 for (std::vector<int> &puzzle : bfs2)
                                 {
                                     if (puzzle == state2)
@@ -1184,7 +1188,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                                 i = j;
                         if (i == 0)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1209,7 +1213,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1237,7 +1241,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
 
                         else if (i == 1)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1262,7 +1266,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1287,7 +1291,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state3)
@@ -1314,7 +1318,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 2)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1339,7 +1343,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1366,7 +1370,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 3)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1391,7 +1395,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1416,7 +1420,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state3)
@@ -1443,7 +1447,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 4)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1468,7 +1472,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1493,7 +1497,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state3)
@@ -1518,7 +1522,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                            std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state4)
@@ -1545,7 +1549,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 5)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1570,7 +1574,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1595,7 +1599,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state3)
@@ -1622,7 +1626,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 6)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1647,7 +1651,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1674,7 +1678,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 7)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1699,7 +1703,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
@@ -1724,7 +1728,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state3)
@@ -1751,7 +1755,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                         }
                         else if (i == 8)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5]};
+                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state1)
@@ -1776,7 +1780,7 @@ void another_algorithm_BFS(const std::vector<int> &init, const std::vector<int> 
                             }
                             in_bfs1 = false;
 
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7]};
+                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
                             for (std::vector<int> &puzzle : bfs1)
                             {
                                 if (puzzle == state2)
