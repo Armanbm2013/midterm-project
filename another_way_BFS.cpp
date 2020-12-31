@@ -485,6 +485,59 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     }
                                     in_bfs4 = false;
                                 }
+
+                                else if (i == 4)
+                                {
+                                    std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                                    for (std::vector<int> &puzzle : bfs4)
+                                    {
+                                        if (puzzle == state1)
+                                        {
+                                            in_bfs4 = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!in_bfs4)
+                                    {
+                                        steps++;
+                                        bfs4.push_back(state1);
+                                        queue4.push(state1);
+                                        if (is_goal_013_4(state1, goal))
+                                        {
+                                            solved(steps, goal);
+                                            goal_finded = true;
+                                            break;
+                                        }
+                                        print_puzzle(steps, state1);
+                                    }
+                                    in_bfs4 = false;
+
+                                    std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                                    for (std::vector<int> &puzzle : bfs4)
+                                    {
+                                        if (puzzle == state2)
+                                        {
+                                            in_bfs4 = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!in_bfs4)
+                                    {
+                                        steps++;
+                                        bfs4.push_back(state2);
+                                        queue4.push(state2);
+                                        if (is_goal_013_4(state2, goal))
+                                        {
+                                            solved(steps, goal);
+                                            goal_finded = true;
+                                            break;
+                                        }
+                                        print_puzzle(steps, state2);
+                                    }
+                                    in_bfs4 = false;
+                                }
                             }
 
                             else if (goal_zero == 2)
