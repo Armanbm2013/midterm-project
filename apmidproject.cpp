@@ -230,7 +230,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
 
     int depth_limit{};
     int depth_choice{};
-    std::cout << "\\nnDo you want to set a depth limit?\n\n"
+    std::cout << "\\nDo you want to set a depth limit?\n\n"
               << "1.Yes\n2.No\n";
     std::cin >> depth_choice;
 
@@ -248,7 +248,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         if (choice == 1)
             BFS(init, goal, depth_limit);
         else if (choice == 2)
-            another_algorithm_BFS(init, goal);
+            another_algorithm_BFS(init, goal, depth_limit);
         else
             DFS(init, goal, depth_limit);
     }
