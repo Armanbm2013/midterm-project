@@ -1,7 +1,7 @@
 #include "BFS.h"
 #include "another_way_BFS.h"
 
-void another_algorithm_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit)
+void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit)
 {
     if (!isSolvable(init, goal))
     {

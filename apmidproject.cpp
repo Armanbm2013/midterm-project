@@ -248,7 +248,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         if (choice == 1)
             BFS(init, goal, depth_limit);
         else if (choice == 2)
-            another_algorithm_BFS(init, goal, depth_limit);
+            Fast_BFS(init, goal, depth_limit);
         else
             DFS(init, goal, depth_limit);
     }
@@ -257,7 +257,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         if (choice == 1)
             BFS(init, goal);
         else if (choice == 2)
-            another_algorithm_BFS(init, goal);
+            Fast_BFS(init, goal);
         else
             DFS(init, goal);
     }
