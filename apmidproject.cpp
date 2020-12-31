@@ -4,7 +4,7 @@
 #include "DFS.h"
 #include "another_way_BFS.h"
 
-bool in_vec(const std::vector<size_t> &v, size_t a)
+bool in_vec(const std::vector<int> &v, int a)
 {
     for (auto &num : v)
         if (num == a)
@@ -21,14 +21,14 @@ void hello_game()
     std::cout << "\033[0;37m"; //gray
 }
 
-std::vector<size_t> own_8_puzzle_vs_random()
+std::vector<int> own_8_puzzle_vs_random()
 {
     std::cout << "\033[0;34m"; //blue
     std::cout << "\nDo you want to solve your own 8-puzzle or want to see how a random puzzle is solved?\n\n"
               << "1.your own 8-puzzle\n2.a random 8-puzzle\n\nInput the number you choose: ";
     std::cout << "\033[0;37m"; //gray
 
-    size_t choice{};
+    int choice{};
     std::cin >> choice;
 
     while (choice != 1 && choice != 2)
@@ -39,11 +39,11 @@ std::vector<size_t> own_8_puzzle_vs_random()
         std::cin >> choice;
     }
 
-    std::vector<size_t> first_state;
+    std::vector<int> first_state;
 
     if (choice == 1)
     {
-        size_t a{}, b{}, c{};
+        int a{}, b{}, c{};
         std::cout << "\033[0;34m"; //blue
         std::cout << "\nEnter your first row of the puzzle in order, the numbers should range from zero to 8(input empty space by 0): ";
         std::cout << "\033[0;37m"; //gray
@@ -91,7 +91,7 @@ std::vector<size_t> own_8_puzzle_vs_random()
     }
     else if (choice == 2)
     {
-        size_t temp{};
+        int temp{};
         srand(time(0));
         while (first_state.size() != 9)
         {
@@ -106,7 +106,7 @@ std::vector<size_t> own_8_puzzle_vs_random()
     std::cout << "\nFirst State:\n";
 
     std::cout << "\033[0;31m"; //red
-    for (size_t i{}; i < 9; i++)
+    for (int i{}; i < 9; i++)
     {
         if (first_state[i] == 0)
             std::cout << " ";
@@ -122,14 +122,14 @@ std::vector<size_t> own_8_puzzle_vs_random()
     return first_state;
 }
 
-std::vector<size_t> input_goal_vs_default_goal()
+std::vector<int> input_goal_vs_default_goal()
 {
     std::cout << "\033[0;34m"; //blue
     std::cout << "\nwould you like to enter your goal state or do you want to use the default?\n\n"
               << "1.your custom goal state\n2.default goal\n\nInput the number you choose: ";
     std::cout << "\033[0;37m"; //gray
 
-    size_t choice{};
+    int choice{};
     std::cin >> choice;
 
     while (choice != 1 && choice != 2)
@@ -140,11 +140,11 @@ std::vector<size_t> input_goal_vs_default_goal()
         std::cin >> choice;
     }
 
-    std::vector<size_t> goal;
+    std::vector<int> goal;
 
     if (choice == 1) //custom goal
     {
-        size_t a{}, b{}, c{};
+        int a{}, b{}, c{};
         std::cout << "\033[0;34m"; //blue
         std::cout << "\nEnter your first row of the goal state in order, the numbers should range from zero to 8(input empty space by 0): ";
         std::cout << "\033[0;37m"; //gray
@@ -197,7 +197,7 @@ std::vector<size_t> input_goal_vs_default_goal()
     std::cout << "\nGoal State:\n";
 
     std::cout << "\033[0;31m"; //red
-    for (size_t i{}; i < 9; i++)
+    for (int i{}; i < 9; i++)
     {
         if (goal[i] == 0)
             std::cout << " ";
@@ -212,9 +212,9 @@ std::vector<size_t> input_goal_vs_default_goal()
     return goal;
 }
 
-void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal)
+void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
 {
-    size_t choice{};
+    int choice{};
     std::cout << "\033[0;34m"; //blue
     std::cout << "\nWhich algorithm do you want to solve your puzzle with?\n\n";
     std::cout << "1.BFS\n2.Fast BFS\n3.DFS\n\nInput the number you choose: ";
@@ -229,7 +229,7 @@ void choose_algorithm(std::vector<size_t> &init, const std::vector<size_t> &goal
     }
 
     int depth_limit{};
-    size_t depth_choice{};
+    int depth_choice{};
     std::cout << "\\nnDo you want to set a depth limit?\n\n"
               << "1.Yes\n2.No\n";
     std::cin >> depth_choice;
@@ -270,7 +270,7 @@ bool continue_game()
               << "Do you Want to play again?\n";
     std::cout << "1.Yes\n2.No\n\nInput the number you choose: ";
     std::cout << "\033[0;37m"; //gray
-    size_t choice{};
+    int choice{};
     std::cin >> choice;
     while (choice != 1 && choice != 2)
     {

@@ -1,7 +1,7 @@
 #include "DFS.h"
 #include "BFS.h"
 
-void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &depth_limit)
+void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit)
 {
     if (!isSolvable(init, goal))
     {
@@ -23,26 +23,26 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
     else
     {
-        init.push_back(0);                          //This is the depth level of the Node
-        std::stack<std::vector<size_t>> stack{};    //we use a stack to check each Depth of the graph in order
-        std::vector<std::vector<size_t>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
+        init.push_back(0);                       //This is the depth level of the Node
+        std::stack<std::vector<int>> stack{};    //we use a stack to check each Depth of the graph in order
+        std::vector<std::vector<int>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         stack.push(dfs.back());
 
-        size_t steps{};
+        int steps{};
         bool in_dfs{false};
-        size_t i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+        int i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
         print_puzzle(steps, init);
         while (true)
         {
-            std::vector<size_t> temp = stack.top();
+            std::vector<int> temp = stack.top();
             stack.pop();
 
             if (depth_limit != -1) //if depth limit was given by the user
-                if (temp[9] >= static_cast<size_t>(depth_limit))
+                if (temp[9] >= depth_limit)
                     continue;
 
-            for (size_t j{}; j < 9; j++)
+            for (int j{}; j < 9; j++)
                 if (temp[j] == 0)
                 {
                     i = j;
@@ -51,8 +51,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             if (i == 0)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -83,8 +83,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -118,8 +118,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 1)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -150,8 +150,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -182,8 +182,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state3 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state3[0])
                         if (puzzle[1] == state3[1])
                             if (puzzle[2] == state3[2])
@@ -217,8 +217,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 2)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -249,8 +249,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -284,8 +284,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 3)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -316,8 +316,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -348,8 +348,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state3[0])
                         if (puzzle[1] == state3[1])
                             if (puzzle[2] == state3[2])
@@ -383,8 +383,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 4)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -415,8 +415,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -447,8 +447,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state3[0])
                         if (puzzle[1] == state3[1])
                             if (puzzle[2] == state3[2])
@@ -479,8 +479,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state4 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state4 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state4[0])
                         if (puzzle[1] == state4[1])
                             if (puzzle[2] == state4[2])
@@ -514,8 +514,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 5)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -546,8 +546,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -578,8 +578,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state3[0])
                         if (puzzle[1] == state3[1])
                             if (puzzle[2] == state3[2])
@@ -613,8 +613,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 6)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -645,8 +645,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -680,8 +680,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 7)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -712,8 +712,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
@@ -744,8 +744,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state3 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state3[0])
                         if (puzzle[1] == state3[1])
                             if (puzzle[2] == state3[2])
@@ -779,8 +779,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
 
             else if (i == 8)
             {
-                std::vector<size_t> state1 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state1[0])
                         if (puzzle[1] == state1[1])
                             if (puzzle[2] == state1[2])
@@ -811,8 +811,8 @@ void DFS(std::vector<size_t> &init, const std::vector<size_t> &goal, const int &
                 }
                 in_dfs = false;
 
-                std::vector<size_t> state2 = std::vector<size_t>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (std::vector<size_t> &puzzle : dfs)
+                std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
+                for (std::vector<int> &puzzle : dfs)
                     if (puzzle[0] == state2[0])
                         if (puzzle[1] == state2[1])
                             if (puzzle[2] == state2[2])
