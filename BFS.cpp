@@ -29,7 +29,7 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
 
         int steps{};
         bool in_bfs{false};
-        int i{}; // position of the empty block(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+        int i{}; // position of the empty block in each state(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
         print_puzzle(steps, init);
 
