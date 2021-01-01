@@ -42,11 +42,8 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 
         print_puzzle(steps, init);
 
-        while (!goal_finded)
+        while (!goal_finded && !depth_reached)
         {
-            if (depth_reached)
-                break;
-
             std::vector<int> temp = queue.front();
             queue.pop();
 
