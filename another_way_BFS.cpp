@@ -84,8 +84,12 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                 {
                     if (condition_3)
                     {
-                        std::queue<std::vector<int>> queue4{};    //a queue for to find a node a that is_goal_4578_4(a,goal) is true
-                        std::vector<std::vector<int>> bfs4{temp}; //a vector to store all of traveresed states until finding the node a that is_goal_4578_4(a,goal) is true
+                        /********************************************************************************************************************************************************************************
+                         **************************************************************************Step 4 of solving the puzzle**************************************************************************
+                         ********************************************************************************************************************************************************************************/
+
+                        std::queue<std::vector<int>> queue4{};    //a queue to find a node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
+                        std::vector<std::vector<int>> bfs4{temp}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
                         queue4.push(bfs4.back());
 
                         bool in_bfs4{false};
@@ -974,8 +978,12 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 
                     else
                     {
-                        std::queue<std::vector<int>> queue3{};    //a queue for to find a node a that is_goal_4578_3(a,goal) is true
-                        std::vector<std::vector<int>> bfs3{temp}; //a vector to store all of traveresed states until finding the node a that is_goal_4578_3(a,goal) is true
+                        /********************************************************************************************************************************************************************************
+                         **************************************************************************Step 3 of solving the puzzle**************************************************************************
+                         ********************************************************************************************************************************************************************************/
+
+                        std::queue<std::vector<int>> queue3{};    //a queue to find a node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
+                        std::vector<std::vector<int>> bfs3{temp}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
                         queue3.push(bfs3.back());
 
                         bool in_bfs3{false};
@@ -1362,8 +1370,12 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 
                 else
                 {
-                    std::queue<std::vector<int>> queue2{};    //a queue for to find a node a that is_goal_4578_2(a,goal) is true
-                    std::vector<std::vector<int>> bfs2{temp}; //a vector to store all of traveresed states until finding the node a that is_goal_4578_2(a,goal) is true
+                    /********************************************************************************************************************************************************************************
+                     **************************************************************************Step 2 of solving the puzzle**************************************************************************
+                     ********************************************************************************************************************************************************************************/
+
+                    std::queue<std::vector<int>> queue2{};    //a queue to find a node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
+                    std::vector<std::vector<int>> bfs2{temp}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
                     queue2.push(bfs2.back());
 
                     bool in_bfs2{false};
@@ -1900,8 +1912,12 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 
             else
             {
-                std::queue<std::vector<int>> queue1{};    //a queue for to find a node a that is_goal_4578_1(a,goal) is true
-                std::vector<std::vector<int>> bfs1{temp}; //a vector to store all of traveresed states until finding the node a that is_goal_4578_1(a,goal) is true
+                /********************************************************************************************************************************************************************************
+                 **************************************************************************Step 1 of solving the puzzle**************************************************************************
+                 ********************************************************************************************************************************************************************************/
+
+                std::queue<std::vector<int>> queue1{};    //a queue to find a node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
+                std::vector<std::vector<int>> bfs1{temp}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
                 queue1.push(bfs1.back());
 
                 bool in_bfs1{false};
