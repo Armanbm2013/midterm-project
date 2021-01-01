@@ -559,7 +559,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state1);
                                         queue4.push(state1);
-                                        if (is_goal_2_1(state1, goal))
+                                        if (is_goal_2_4(state1, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -584,7 +584,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state2);
                                         queue4.push(state2);
-                                        if (is_goal_2_1(state2, goal))
+                                        if (is_goal_2_4(state2, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -612,7 +612,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state1);
                                         queue4.push(state1);
-                                        if (is_goal_2_1(state1, goal))
+                                        if (is_goal_2_4(state1, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -637,7 +637,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state2);
                                         queue4.push(state2);
-                                        if (is_goal_2_1(state2, goal))
+                                        if (is_goal_2_4(state2, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -665,7 +665,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state1);
                                         queue4.push(state1);
-                                        if (is_goal_2_1(state1, goal))
+                                        if (is_goal_2_4(state1, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -690,7 +690,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state2);
                                         queue4.push(state2);
-                                        if (is_goal_2_1(state2, goal))
+                                        if (is_goal_2_4(state2, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -718,7 +718,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state1);
                                         queue4.push(state1);
-                                        if (is_goal_2_1(state1, goal))
+                                        if (is_goal_2_4(state1, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
@@ -743,7 +743,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs4.push_back(state2);
                                         queue4.push(state2);
-                                        if (is_goal_2_1(state2, goal))
+                                        if (is_goal_2_4(state2, goal))
                                         {
                                             solved(steps, goal);
                                             goal_finded = true;
