@@ -9,7 +9,7 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset
     }
 
     else if (init == goal) //when the initial puzzle is the goal puzzle!
@@ -18,7 +18,7 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset
     }
 
     else

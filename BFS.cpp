@@ -8,7 +8,7 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset
     }
 
     else if (init == goal) //when the initial puzzle is the goal puzzle!
@@ -17,7 +17,7 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset
     }
 
     else
@@ -836,7 +836,7 @@ void solved(int steps, const std::vector<int> &goal)
             std::cout << " ";
     }
     std::cout << "\n*************************\n";
-    std::cout << "\033[0;37m"; //gray
+    std::cout << "\u001b[0m"; //reset
 }
 
 void print_puzzle(int steps, const std::vector<int> &state)
@@ -855,7 +855,7 @@ void print_puzzle(int steps, const std::vector<int> &state)
         else
             std::cout << " ";
     }
-    std::cout << "\033[0;37m"; //gray
+    std::cout << "\u001b[0m"; //reset
 }
 
 //following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/" ***with a little modification***
