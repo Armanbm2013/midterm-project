@@ -61,6 +61,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                 condition_1 = is_goal_013_1(temp, goal);
                 condition_2 = is_goal_013_2(temp, goal);
                 condition_3 = is_goal_013_3(temp, goal);
+                std::cout << "\ndone\n";
             }
             else if (goal_zero == 2)
             {
@@ -4528,1271 +4529,1255 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             break;
                         }
 
-                    if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                    if (i == 0)
                     {
-
-                        if (i == 0)
+                        std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
+                            if (puzzle == state1)
                             {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
+                                in_bfs1 = true;
+                                break;
                             }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
                         }
 
-                        else if (i == 1)
+                        if (!in_bfs1)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
-                                if (puzzle == state1)
+                                if (is_goal_4578_1(state1, goal))
                                 {
-                                    in_bfs1 = true;
+                                    queue.push(state1);
                                     break;
                                 }
                             }
-
-                            if (!in_bfs1)
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
                             {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                                if (is_goal_013_1(state1, goal))
                                 {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
+                                    queue.push(state1);
                                     break;
                                 }
                             }
-
-                            if (!in_bfs1)
+                            else if (goal_zero == 2)
                             {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                                if (is_goal_2_1(state1, goal))
                                 {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state3)
-                                {
-                                    in_bfs1 = true;
+                                    queue.push(state1);
                                     break;
                                 }
                             }
-
-                            if (!in_bfs1)
+                            else //goal_zero = 6
                             {
-                                steps++;
-                                bfs1.push_back(state3);
-                                queue1.push(state3);
-                                print_puzzle(steps, state3);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                                if (is_goal_6_1(state1, goal))
                                 {
-                                    if (is_goal_4578_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
+                                    queue.push(state1);
+                                    break;
                                 }
                             }
-                            in_bfs1 = false;
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
                         }
 
-                        else if (i == 2)
+                        if (!in_bfs1)
                         {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
-                                if (puzzle == state1)
+                                if (is_goal_4578_1(state2, goal))
                                 {
-                                    in_bfs1 = true;
+                                    queue.push(state2);
                                     break;
                                 }
                             }
-
-                            if (!in_bfs1)
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
                             {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                                if (is_goal_013_1(state2, goal))
                                 {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
+                                    queue.push(state2);
                                     break;
                                 }
                             }
-
-                            if (!in_bfs1)
+                            else if (goal_zero == 2)
                             {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                                if (is_goal_2_1(state2, goal))
                                 {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
+                                    queue.push(state2);
+                                    break;
                                 }
                             }
-                            in_bfs1 = false;
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
                         }
-
-                        else if (i == 3)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state3)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state3);
-                                queue1.push(state3);
-                                print_puzzle(steps, state3);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
-
-                        else if (i == 4)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state3)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state3);
-                                queue1.push(state3);
-                                print_puzzle(steps, state3);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state4)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state4);
-                                queue1.push(state4);
-                                print_puzzle(steps, state4);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state4, goal))
-                                    {
-                                        queue.push(state4);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state4, goal))
-                                    {
-                                        queue.push(state4);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state4, goal))
-                                    {
-                                        queue.push(state4);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state4, goal))
-                                    {
-                                        queue.push(state4);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
-
-                        else if (i == 5)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state3)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state3);
-                                queue1.push(state3);
-                                print_puzzle(steps, state3);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
-
-                        else if (i == 6)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
-
-                        else if (i == 7)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state3)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state3);
-                                queue1.push(state3);
-                                print_puzzle(steps, state3);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state3, goal))
-                                    {
-                                        queue.push(state3);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
-
-                        else if (i == 8)
-                        {
-                            std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state1)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state1);
-                                queue1.push(state1);
-                                print_puzzle(steps, state1);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state1, goal))
-                                    {
-                                        queue.push(state1);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-
-                            std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                            for (std::vector<int> &puzzle : bfs1)
-                            {
-                                if (puzzle == state2)
-                                {
-                                    in_bfs1 = true;
-                                    break;
-                                }
-                            }
-
-                            if (!in_bfs1)
-                            {
-                                steps++;
-                                bfs1.push_back(state2);
-                                queue1.push(state2);
-                                print_puzzle(steps, state2);
-                                if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
-                                {
-                                    if (is_goal_4578_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
-                                {
-                                    if (is_goal_013_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else if (goal_zero == 2)
-                                {
-                                    if (is_goal_2_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                                else //goal_zero = 6
-                                {
-                                    if (is_goal_6_1(state2, goal))
-                                    {
-                                        queue.push(state2);
-                                        break;
-                                    }
-                                }
-                            }
-                            in_bfs1 = false;
-                        }
+                        in_bfs1 = false;
                     }
 
-                    else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                    else if (i == 1)
                     {
+                        std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state3 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state3)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state3);
+                            queue1.push(state3);
+                            print_puzzle(steps, state3);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
                     }
 
-                    else if (goal_zero == 2)
+                    else if (i == 2)
                     {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
                     }
 
-                    else //goal_zero = 6
+                    else if (i == 3)
                     {
+                        std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state3)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state3);
+                            queue1.push(state3);
+                            print_puzzle(steps, state3);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+                    }
+
+                    else if (i == 4)
+                    {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state3)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state3);
+                            queue1.push(state3);
+                            print_puzzle(steps, state3);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state4)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state4);
+                            queue1.push(state4);
+                            print_puzzle(steps, state4);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state4, goal))
+                                {
+                                    queue.push(state4);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state4, goal))
+                                {
+                                    queue.push(state4);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state4, goal))
+                                {
+                                    queue.push(state4);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state4, goal))
+                                {
+                                    queue.push(state4);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+                    }
+
+                    else if (i == 5)
+                    {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state3)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state3);
+                            queue1.push(state3);
+                            print_puzzle(steps, state3);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+                    }
+
+                    else if (i == 6)
+                    {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+                    }
+
+                    else if (i == 7)
+                    {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state3)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state3);
+                            queue1.push(state3);
+                            print_puzzle(steps, state3);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state3, goal))
+                                {
+                                    queue.push(state3);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+                    }
+
+                    else if (i == 8)
+                    {
+                        std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state1)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state1);
+                            queue1.push(state1);
+                            print_puzzle(steps, state1);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state1, goal))
+                                {
+                                    queue.push(state1);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
+
+                        std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
+                        for (std::vector<int> &puzzle : bfs1)
+                        {
+                            if (puzzle == state2)
+                            {
+                                in_bfs1 = true;
+                                break;
+                            }
+                        }
+
+                        if (!in_bfs1)
+                        {
+                            steps++;
+                            bfs1.push_back(state2);
+                            queue1.push(state2);
+                            print_puzzle(steps, state2);
+                            if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+                            {
+                                if (is_goal_4578_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+                            {
+                                if (is_goal_013_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else if (goal_zero == 2)
+                            {
+                                if (is_goal_2_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                            else //goal_zero = 6
+                            {
+                                if (is_goal_6_1(state2, goal))
+                                {
+                                    queue.push(state2);
+                                    break;
+                                }
+                            }
+                        }
+                        in_bfs1 = false;
                     }
                 }
             }
