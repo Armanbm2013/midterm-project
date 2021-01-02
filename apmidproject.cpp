@@ -208,10 +208,10 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
 {
     int choice{};
     std::cout << "\u001b[35;1m\nWhich algorithm do you want to solve your puzzle with?\n\n";
-    std::cout << "\u001b[31;1m1 \u001b[33;1mBFS\n\u001b[31;1m2 \u001b[33;1mFast BFS\n\u001b[31;1m3 \u001b[33;1mDFS\n\n\u001b[35;1mInput the number you choose: ";
+    std::cout << "\u001b[31;1m1 \u001b[33;1mFast BFS\n\u001b[31;1m2 \u001b[33;1mDFS\n\n\u001b[35;1mInput the number you choose: ";
     std::cout << "\u001b[0m"; //reset color and style
     std::cin >> choice;
-    while (choice != 1 && choice != 2 && choice != 3)
+    while (choice != 1 && choice != 2)
     {
         std::cout << "\u001b[31;1m"; //Bright Red
         std::cout << "Invalid choice, try again: ";
@@ -238,20 +238,22 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         std::cout << "\u001b[33;1m\nEnter Depth limit: ";
         std::cin >> depth_limit;
         if (choice == 1)
-            BFS(init, goal, depth_limit);
-        else if (choice == 2)
-            Fast_BFS(init, goal, depth_limit);
-        else
             DFS(init, goal, depth_limit);
+        else
+        {
+
+            Fast_BFS(first_state, goal, depth_limit);
+        }
     }
     else
     {
         if (choice == 1)
-            BFS(init, goal);
-        else if (choice == 2)
-            Fast_BFS(init, goal);
-        else
             DFS(init, goal);
+        else if (choice == 2)
+        {
+            Node first_state{init};
+            Fast_BFS(first_state, goal);
+        }
     }
 }
 
