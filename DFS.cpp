@@ -28,11 +28,8 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
         std::vector<std::vector<int>> dfs{init}; //we use a vector to store the states that we have traversed, and we use it to prevent traversing one state twice
         stack.push(init);
 
-        int steps{};
         bool in_dfs{false};
         int i{}; // position of the empty block in each state(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
-
-        print_puzzle(steps, init);
 
         while (true)
         {
@@ -71,15 +68,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -103,15 +98,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -138,15 +131,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -170,15 +161,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -202,15 +191,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state3);
                     stack.push(state3);
                     if (is_goal(state3, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state3);
                     continue;
                 }
                 in_dfs = false;
@@ -237,15 +224,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -269,15 +254,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -304,15 +287,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -336,15 +317,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -368,15 +347,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state3);
                     stack.push(state3);
                     if (is_goal(state3, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state3);
                     continue;
                 }
                 in_dfs = false;
@@ -403,15 +380,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -435,15 +410,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -467,15 +440,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state3);
                     stack.push(state3);
                     if (is_goal(state3, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state3);
                     continue;
                 }
                 in_dfs = false;
@@ -499,15 +470,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state4);
                     stack.push(state4);
                     if (is_goal(state4, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state4);
                     continue;
                 }
                 in_dfs = false;
@@ -534,15 +503,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -566,15 +533,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -598,15 +563,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state3);
                     stack.push(state3);
                     if (is_goal(state3, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state3);
                     continue;
                 }
                 in_dfs = false;
@@ -633,15 +596,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -665,15 +626,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -700,15 +659,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -732,15 +689,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -764,15 +719,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state3);
                     stack.push(state3);
                     if (is_goal(state3, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state3);
                     continue;
                 }
                 in_dfs = false;
@@ -799,15 +752,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state1);
                     stack.push(state1);
                     if (is_goal(state1, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state1);
                     continue;
                 }
                 in_dfs = false;
@@ -831,15 +782,13 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 if (!in_dfs)
                 {
                     stack.push(temp);
-                    steps++;
                     dfs.push_back(state2);
                     stack.push(state2);
                     if (is_goal(state2, goal))
                     {
-                        solved(steps, goal);
+                        solved_DFS(stack, goal);
                         break;
                     }
-                    print_puzzle(steps, state2);
                     continue;
                 }
                 in_dfs = false;
@@ -851,4 +800,38 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             }
         }
     }
+}
+
+void solved_DFS(std::stack<std::vector<int>> &stack, const std::vector<int> &goal)
+{
+    std::vector<std::vector<int>> moves{};
+    while (!stack.empty())
+    {
+        moves.push_back(stack.top());
+        stack.pop();
+    }
+    size_t steps{moves.size() - 1};
+
+    std::cout << "\u001b[32;1m"; //Bright Green
+    std::cout << "\n*************************\n";
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
+    std::cout << "\n*************************\n\u001b[0m";
+
+    for (size_t i{0}; i < steps; i++)
+        print_puzzle(i, moves[steps - i]);
+
+    std::cout << "\u001b[32;1m\n\nGoal State:\nStep " << steps << ":\n";
+    for (int i{}; i < 9; i++)
+    {
+        if (goal[i] == 0)
+            std::cout << " ";
+        else
+            std::cout << goal[i];
+        if (i % 3 == 2)
+            std::cout << "\n";
+        else
+            std::cout << " ";
+    }
+    std::cout << "\n*************************\n";
+    std::cout << "\u001b[0m"; //reset color and style
 }
