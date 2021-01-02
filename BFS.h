@@ -1,12 +1,12 @@
-#ifndef awbfs_h
-#define awbfs_h
+#ifndef BFS_h
+#define BFS_h
 
 #include <iostream>
 #include <vector>
 #include <queue>
 #include "Node.h"
 
-void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &depth_limit = -1);
+void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &depth_limit = -1);
 void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal);
 
 bool is_goal_4578_1(const std::vector<int> &state, const std::vector<int> &goal);
