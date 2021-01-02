@@ -7,7 +7,6 @@ github page for this project: https://github.com/Armanbm2013/midterm-project
 *********************************************************************************/
 
 #include "BFS.h"
-#include "another_way_BFS.h"
 #include "apmidproject.h"
 #include "DFS.h"
 
