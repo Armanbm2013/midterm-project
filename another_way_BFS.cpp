@@ -1,6 +1,5 @@
-#include "BFS.h"
+#include "DFS.h"
 #include "another_way_BFS.h"
-#include "Node.h"
 #include <utility>
 
 void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &depth_limit)

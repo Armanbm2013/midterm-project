@@ -1,5 +1,4 @@
 #include "DFS.h"
-#include "BFS.h"
 
 void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit)
 {
@@ -802,6 +801,21 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
     }
 }
 
+bool is_goal(const std::vector<int> &state, const std::vector<int> &goal)
+{
+    if (goal[0] == state[0])
+        if (goal[1] == state[1])
+            if (goal[2] == state[2])
+                if (goal[3] == state[3])
+                    if (goal[4] == state[4])
+                        if (goal[5] == state[5])
+                            if (goal[6] == state[6])
+                                if (goal[7] == state[7])
+                                    if (goal[8] == state[8])
+                                        return true;
+    return false;
+}
+
 void solved_DFS(std::stack<std::vector<int>> &stack, const std::vector<int> &goal)
 {
     std::vector<std::vector<int>> moves{};
@@ -834,4 +848,49 @@ void solved_DFS(std::stack<std::vector<int>> &stack, const std::vector<int> &goa
     }
     std::cout << "\n*************************\n";
     std::cout << "\u001b[0m"; //reset color and style
+}
+
+void print_puzzle(int steps, const std::vector<int> &state)
+{
+    std::cout << "\u001b[31;1m"; //Bright Red
+    std::cout << "\nStep " << steps << ":\n";
+    std::cout << "\u001b[34;1m"; //Bright Blue
+    for (int i{}; i < 9; i++)
+    {
+        if (state[i] == 0)
+            std::cout << " ";
+        else
+            std::cout << state[i];
+        if (i % 3 == 2)
+            std::cout << "\n";
+        else
+            std::cout << " ";
+    }
+    std::cout << "\u001b[0m"; //reset color and style
+}
+
+//following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/" ***with a little modification***
+// A utility function to count inversions in given vector 'arr'
+int getInvCount(const std::vector<int> &arr)
+{
+    int inv_count = 0;
+    for (int i = 0; i < 9 - 1; i++)
+        for (int j = i + 1; j < 9; j++)
+            // Value 0 is used for empty space
+            if (arr[j] && arr[i] && arr[i] > arr[j])
+                inv_count++;
+    return inv_count;
+}
+
+// This function returns true if given 8 puzzle is solvable.
+bool isSolvable(const std::vector<int> &arr, const std::vector<int> &goal)
+{
+    // Count inversions in given 8 puzzle
+    int invCount = getInvCount(arr);
+
+    // Count inversions in given 8 puzzle
+    int invCount_goal = getInvCount(goal);
+
+    // return true if inversion count is even.
+    return (invCount % 2 == invCount_goal % 2);
 }
