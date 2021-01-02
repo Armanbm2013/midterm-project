@@ -6,7 +6,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
     if (!isSolvable(init, goal))
     {
         std::cout << "\u001b[31;1m"; //Bright Red
-        std::cout << "*************************\n";
+        std::cout << "\n*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
         std::cout << "\u001b[0m"; //reset color and style
@@ -15,8 +15,8 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "\u001b[32;1m"; //Bright Green
-        std::cout << "*************************\n";
-        std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
+        std::cout << "\n*************************\n";
+        std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
         std::cout << "\u001b[0m"; //reset color and style
     }
