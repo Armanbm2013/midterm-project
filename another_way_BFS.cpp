@@ -38,9 +38,10 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
                 goal_zero = i;
                 break;
             }
-
+        std::cout << "\ntest 4\n";
         while (!goal_finded && !depth_reached)
         {
+            std::cout << "\ntest 5:" << goal_zero << "\n";
             bool condition_1{false};
             bool condition_2{false};
             bool condition_3{false};
@@ -83,8 +84,6 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
                         }
                         else
                         {
-                            std::cout << "check\n";
-                            break;
                             /********************************************************************************************************************************************************************************
                              **************************************************************************Step 4 of solving the puzzle**************************************************************************
                              ********************************************************************************************************************************************************************************/
@@ -2364,12 +2363,13 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
                     queue2.push(bfs2.back());
 
                     bool in_bfs2{false};
-
+                    std::cout << "\ntest 1\n";
                     while (true)
                     {
+                        std::cout << "\ntest 2\n";
                         Node temp1 = queue2.front();
                         queue2.pop();
-
+                        std::cout << "\ntest 3\n";
                         if (depth_limit != -1) //if depth limit was given by the user
                             if (temp1[9] >= depth_limit)
                             {
@@ -5692,7 +5692,7 @@ void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal)
     for (size_t i{0}; i < steps - 1; i++)
         print_puzzle(i, goal_node.parents[i]);
 
-    std::cout << "\u001b[32;1m\n\nGoal State:\nStep " << steps << ":\n";
+    std::cout << "\u001b[32;1m\n\nGoal State:\nStep " << steps - 1 << ":\n";
     for (int i{}; i < 9; i++)
     {
         if (goal[i] == 0)
