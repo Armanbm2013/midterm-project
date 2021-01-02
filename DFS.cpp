@@ -49,19 +49,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             if (i == 0)
             {
                 std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -79,19 +87,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -112,19 +128,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 1)
             {
                 std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -142,19 +166,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -172,19 +204,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state3[0])
-                        if (puzzle[1] == state3[1])
-                            if (puzzle[2] == state3[2])
-                                if (puzzle[3] == state3[3])
-                                    if (puzzle[4] == state3[4])
-                                        if (puzzle[5] == state3[5])
-                                            if (puzzle[6] == state3[6])
-                                                if (puzzle[7] == state3[7])
-                                                    if (puzzle[8] == state3[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state3[0])
+                        if (dfs[i][1] == state3[1])
+                            if (dfs[i][2] == state3[2])
+                                if (dfs[i][3] == state3[3])
+                                    if (dfs[i][4] == state3[4])
+                                        if (dfs[i][5] == state3[5])
+                                            if (dfs[i][6] == state3[6])
+                                                if (dfs[i][7] == state3[7])
+                                                    if (dfs[i][8] == state3[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state3[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -205,19 +245,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 2)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -235,19 +283,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -268,19 +324,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 3)
             {
                 std::vector<int> state1 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -298,19 +362,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -328,19 +400,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state3[0])
-                        if (puzzle[1] == state3[1])
-                            if (puzzle[2] == state3[2])
-                                if (puzzle[3] == state3[3])
-                                    if (puzzle[4] == state3[4])
-                                        if (puzzle[5] == state3[5])
-                                            if (puzzle[6] == state3[6])
-                                                if (puzzle[7] == state3[7])
-                                                    if (puzzle[8] == state3[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state3[0])
+                        if (dfs[i][1] == state3[1])
+                            if (dfs[i][2] == state3[2])
+                                if (dfs[i][3] == state3[3])
+                                    if (dfs[i][4] == state3[4])
+                                        if (dfs[i][5] == state3[5])
+                                            if (dfs[i][6] == state3[6])
+                                                if (dfs[i][7] == state3[7])
+                                                    if (dfs[i][8] == state3[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state3[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -361,19 +441,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 4)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -391,19 +479,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -421,19 +517,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state3[0])
-                        if (puzzle[1] == state3[1])
-                            if (puzzle[2] == state3[2])
-                                if (puzzle[3] == state3[3])
-                                    if (puzzle[4] == state3[4])
-                                        if (puzzle[5] == state3[5])
-                                            if (puzzle[6] == state3[6])
-                                                if (puzzle[7] == state3[7])
-                                                    if (puzzle[8] == state3[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state3[0])
+                        if (dfs[i][1] == state3[1])
+                            if (dfs[i][2] == state3[2])
+                                if (dfs[i][3] == state3[3])
+                                    if (dfs[i][4] == state3[4])
+                                        if (dfs[i][5] == state3[5])
+                                            if (dfs[i][6] == state3[6])
+                                                if (dfs[i][7] == state3[7])
+                                                    if (dfs[i][8] == state3[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state3[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -451,19 +555,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state4 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state4[0])
-                        if (puzzle[1] == state4[1])
-                            if (puzzle[2] == state4[2])
-                                if (puzzle[3] == state4[3])
-                                    if (puzzle[4] == state4[4])
-                                        if (puzzle[5] == state4[5])
-                                            if (puzzle[6] == state4[6])
-                                                if (puzzle[7] == state4[7])
-                                                    if (puzzle[8] == state4[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state4[0])
+                        if (dfs[i][1] == state4[1])
+                            if (dfs[i][2] == state4[2])
+                                if (dfs[i][3] == state4[3])
+                                    if (dfs[i][4] == state4[4])
+                                        if (dfs[i][5] == state4[5])
+                                            if (dfs[i][6] == state4[6])
+                                                if (dfs[i][7] == state4[7])
+                                                    if (dfs[i][8] == state4[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state4[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -484,19 +596,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 5)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -514,19 +634,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -544,19 +672,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state3[0])
-                        if (puzzle[1] == state3[1])
-                            if (puzzle[2] == state3[2])
-                                if (puzzle[3] == state3[3])
-                                    if (puzzle[4] == state3[4])
-                                        if (puzzle[5] == state3[5])
-                                            if (puzzle[6] == state3[6])
-                                                if (puzzle[7] == state3[7])
-                                                    if (puzzle[8] == state3[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state3[0])
+                        if (dfs[i][1] == state3[1])
+                            if (dfs[i][2] == state3[2])
+                                if (dfs[i][3] == state3[3])
+                                    if (dfs[i][4] == state3[4])
+                                        if (dfs[i][5] == state3[5])
+                                            if (dfs[i][6] == state3[6])
+                                                if (dfs[i][7] == state3[7])
+                                                    if (dfs[i][8] == state3[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state3[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -577,19 +713,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 6)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -607,19 +751,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -640,19 +792,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 7)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -670,19 +830,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -700,19 +868,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state3[0])
-                        if (puzzle[1] == state3[1])
-                            if (puzzle[2] == state3[2])
-                                if (puzzle[3] == state3[3])
-                                    if (puzzle[4] == state3[4])
-                                        if (puzzle[5] == state3[5])
-                                            if (puzzle[6] == state3[6])
-                                                if (puzzle[7] == state3[7])
-                                                    if (puzzle[8] == state3[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state3[0])
+                        if (dfs[i][1] == state3[1])
+                            if (dfs[i][2] == state3[2])
+                                if (dfs[i][3] == state3[3])
+                                    if (dfs[i][4] == state3[4])
+                                        if (dfs[i][5] == state3[5])
+                                            if (dfs[i][6] == state3[6])
+                                                if (dfs[i][7] == state3[7])
+                                                    if (dfs[i][8] == state3[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state3[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -733,19 +909,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             else if (i == 8)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state1[0])
-                        if (puzzle[1] == state1[1])
-                            if (puzzle[2] == state1[2])
-                                if (puzzle[3] == state1[3])
-                                    if (puzzle[4] == state1[4])
-                                        if (puzzle[5] == state1[5])
-                                            if (puzzle[6] == state1[6])
-                                                if (puzzle[7] == state1[7])
-                                                    if (puzzle[8] == state1[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state1[0])
+                        if (dfs[i][1] == state1[1])
+                            if (dfs[i][2] == state1[2])
+                                if (dfs[i][3] == state1[3])
+                                    if (dfs[i][4] == state1[4])
+                                        if (dfs[i][5] == state1[5])
+                                            if (dfs[i][6] == state1[6])
+                                                if (dfs[i][7] == state1[7])
+                                                    if (dfs[i][8] == state1[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state1[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -763,19 +947,27 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (std::vector<int> &puzzle : dfs)
-                    if (puzzle[0] == state2[0])
-                        if (puzzle[1] == state2[1])
-                            if (puzzle[2] == state2[2])
-                                if (puzzle[3] == state2[3])
-                                    if (puzzle[4] == state2[4])
-                                        if (puzzle[5] == state2[5])
-                                            if (puzzle[6] == state2[6])
-                                                if (puzzle[7] == state2[7])
-                                                    if (puzzle[8] == state2[8])
+                for (size_t i{}; i < dfs.size(); i++)
+                    if (dfs[i][0] == state2[0])
+                        if (dfs[i][1] == state2[1])
+                            if (dfs[i][2] == state2[2])
+                                if (dfs[i][3] == state2[3])
+                                    if (dfs[i][4] == state2[4])
+                                        if (dfs[i][5] == state2[5])
+                                            if (dfs[i][6] == state2[6])
+                                                if (dfs[i][7] == state2[7])
+                                                    if (dfs[i][8] == state2[8])
                                                     {
-                                                        in_dfs = true;
-                                                        break;
+                                                        if (dfs[i][9] > state2[9])
+                                                        {
+                                                            dfs.erase(dfs.begin() + i);
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
