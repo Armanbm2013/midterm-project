@@ -41,7 +41,7 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
         std::cout << "\ntest 4\n";
         while (!goal_finded && !depth_reached)
         {
-            std::cout << "\ntest 5:" << goal_zero << "\n";
+
             bool condition_1{false};
             bool condition_2{false};
             bool condition_3{false};
@@ -49,6 +49,8 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
             {
                 condition_1 = is_goal_4578_1(init.state, goal);
                 condition_2 = is_goal_4578_2(init.state, goal);
+                if (condition_2)
+                    std::cout << "\ntest 5:" << goal_zero << "\n";
                 condition_3 = is_goal_4578_3(init.state, goal);
             }
             else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
