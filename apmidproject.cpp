@@ -238,16 +238,17 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         std::cout << "\u001b[33;1m\nEnter Depth limit: ";
         std::cin >> depth_limit;
         if (choice == 1)
-            DFS(init, goal, depth_limit);
-        else
             Fast_BFS(init, goal, depth_limit);
+
+        else
+            DFS(init, goal, depth_limit);
     }
     else
     {
         if (choice == 1)
-            DFS(init, goal);
-        else if (choice == 2)
             Fast_BFS(init, goal);
+        else if (choice == 2)
+            DFS(init, goal);
     }
 }
 
