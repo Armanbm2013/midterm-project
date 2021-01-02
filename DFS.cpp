@@ -61,13 +61,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -97,13 +107,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -136,13 +156,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -172,13 +202,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -208,13 +248,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state3[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state3[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -247,13 +297,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -283,13 +343,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -322,13 +392,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -358,13 +438,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -394,13 +484,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state3[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state3[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -433,13 +533,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -469,13 +579,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -505,13 +625,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state3[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state3[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -541,13 +671,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state4[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state4[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -580,13 +720,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -616,13 +766,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -652,13 +812,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state3[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state3[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -691,13 +861,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -727,13 +907,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -766,13 +956,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -802,13 +1002,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -838,13 +1048,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state3[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state3[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -877,13 +1097,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state1[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state1[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
@@ -913,13 +1143,23 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                                                     if (dfs[i][8] == state2[8])
                                                     {
                                                         if (depth_limit != -1)
+                                                        {
                                                             if (dfs[i][9] > state2[9])
                                                             {
                                                                 dfs.erase(dfs.begin() + i);
                                                                 break;
                                                             }
-                                                        in_dfs = true;
-                                                        break;
+                                                            else
+                                                            {
+                                                                in_dfs = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            in_dfs = true;
+                                                            break;
+                                                        }
                                                     }
 
                 if (!in_dfs)
