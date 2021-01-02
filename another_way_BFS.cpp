@@ -2399,8 +2399,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2421,8 +2422,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2446,8 +2448,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2468,8 +2471,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2493,8 +2497,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2515,8 +2520,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2540,8 +2546,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2562,8 +2569,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2584,8 +2592,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state3;
@@ -2606,8 +2615,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state4);
-                                    queue2.push(state4);
+                                    Node node{temp1, state4};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state4;
@@ -2631,8 +2641,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2653,8 +2664,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2675,8 +2687,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state3;
@@ -2700,8 +2713,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2722,8 +2736,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2747,8 +2762,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2769,8 +2785,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2791,8 +2808,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state3;
@@ -2816,8 +2834,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2838,8 +2857,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_4578_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2866,8 +2886,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2888,8 +2909,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2912,8 +2934,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -2934,8 +2957,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -2956,8 +2980,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state3;
@@ -2981,8 +3006,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3003,8 +3029,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3028,8 +3055,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3050,8 +3078,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3072,8 +3101,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3097,8 +3127,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3119,8 +3150,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3141,8 +3173,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3163,8 +3196,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state4);
-                                    queue2.push(state4);
+                                    Node node{temp1, state4};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state4;
@@ -3188,8 +3222,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3210,8 +3245,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3235,8 +3271,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3257,8 +3294,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3282,8 +3320,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3304,8 +3343,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_013_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3332,8 +3372,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3354,8 +3395,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3378,8 +3420,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3400,8 +3443,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3422,8 +3466,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3447,8 +3492,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3469,8 +3515,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3494,8 +3541,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3516,8 +3564,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3541,8 +3590,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3563,8 +3613,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3585,8 +3636,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3607,8 +3659,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state4);
-                                    queue2.push(state4);
+                                    Node node{temp1, state4};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state4;
@@ -3632,8 +3685,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3654,8 +3708,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3676,8 +3731,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3701,8 +3757,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3723,8 +3780,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3748,8 +3806,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3770,8 +3829,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_2_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3798,8 +3858,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3820,8 +3881,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3844,8 +3906,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3866,8 +3929,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3891,8 +3955,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3913,8 +3978,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -3935,8 +4001,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state3;
@@ -3960,8 +4027,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -3982,8 +4050,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -4004,8 +4073,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state3;
@@ -4026,8 +4096,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state4);
-                                    queue2.push(state4);
+                                    Node node{temp1, state4};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state4;
@@ -4051,8 +4122,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -4073,8 +4145,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -4098,8 +4171,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -4120,8 +4194,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -4145,8 +4220,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -4167,8 +4243,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
@@ -4189,8 +4266,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state3);
-                                    queue2.push(state3);
+                                    Node node{temp1, state3};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state3;
@@ -4214,8 +4292,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state1);
-                                    queue2.push(state1);
+                                    Node node{temp1, state1};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state1;
@@ -4236,8 +4315,9 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
 
                                 if (!in_bfs2)
                                 {
-                                    bfs2.push_back(state2);
-                                    queue2.push(state2);
+                                    Node node{temp1, state2};
+                                    bfs2.push_back(node);
+                                    queue2.push(node);
                                     if (is_goal_6_2(node.state, goal))
                                     {
                                         init = state2;
