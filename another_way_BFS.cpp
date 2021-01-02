@@ -29,8 +29,7 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
         bool goal_finded{false};   //We use it to end the while loop
         bool depth_reached{false}; //We use it to stop function when we traversed all Node till ours depth limit
-        int steps{};
-        int i{}; //position of the empty block in each state(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
+        int i{};                   //position of the empty block in each state(here we use zero instead of empty, but when we print the puzzle, we print " " instead of "0")
 
         int goal_zero{}; //position of the empty block in the goal state
         for (int i{}; i < 9; i++)
@@ -130,7 +129,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_4578_4(state1, goal))
@@ -154,7 +152,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_4578_4(state2, goal))
@@ -181,7 +178,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_4578_4(state1, goal))
@@ -205,7 +201,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_4578_4(state2, goal))
@@ -232,7 +227,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_4578_4(state1, goal))
@@ -256,7 +250,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_4578_4(state2, goal))
@@ -283,7 +276,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_4578_4(state1, goal))
@@ -307,7 +299,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_4578_4(state2, goal))
@@ -337,7 +328,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_013_4(state1, goal))
@@ -361,7 +351,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_013_4(state2, goal))
@@ -388,7 +377,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_013_4(state1, goal))
@@ -412,7 +400,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_013_4(state2, goal))
@@ -439,7 +426,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_013_4(state1, goal))
@@ -463,7 +449,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_013_4(state2, goal))
@@ -490,7 +475,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_013_4(state1, goal))
@@ -514,7 +498,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_013_4(state2, goal))
@@ -544,7 +527,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_2_4(state1, goal))
@@ -568,7 +550,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_2_4(state2, goal))
@@ -595,7 +576,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_2_4(state1, goal))
@@ -619,7 +599,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_2_4(state2, goal))
@@ -646,7 +625,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_2_4(state1, goal))
@@ -670,7 +648,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_2_4(state2, goal))
@@ -697,7 +674,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_2_4(state1, goal))
@@ -721,7 +697,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_2_4(state2, goal))
@@ -751,7 +726,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_6_4(state1, goal))
@@ -775,7 +749,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_6_4(state2, goal))
@@ -802,7 +775,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_6_4(state1, goal))
@@ -826,7 +798,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_6_4(state2, goal))
@@ -853,7 +824,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_6_4(state1, goal))
@@ -877,7 +847,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_6_4(state2, goal))
@@ -904,7 +873,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state1);
                                             queue4.push(state1);
                                             if (is_goal_6_4(state1, goal))
@@ -928,7 +896,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                         if (!in_bfs4)
                                         {
-                                            steps++;
                                             bfs4.push_back(state2);
                                             queue4.push(state2);
                                             if (is_goal_6_4(state2, goal))
@@ -993,7 +960,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1016,7 +982,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1042,7 +1007,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1065,7 +1029,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1088,7 +1051,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_4578_3(state3, goal))
@@ -1114,7 +1076,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1137,7 +1098,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1163,7 +1123,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1186,7 +1145,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1212,7 +1170,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1235,7 +1192,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1258,7 +1214,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_4578_3(state3, goal))
@@ -1284,7 +1239,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_4578_3(state1, goal))
@@ -1307,7 +1261,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_4578_3(state2, goal))
@@ -1336,7 +1289,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1359,7 +1311,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1385,7 +1336,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1408,7 +1358,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1434,7 +1383,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1457,7 +1405,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1480,7 +1427,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_013_3(state3, goal))
@@ -1506,7 +1452,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1529,7 +1474,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1552,7 +1496,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_013_3(state3, goal))
@@ -1578,7 +1521,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1601,7 +1543,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1627,7 +1568,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_013_3(state1, goal))
@@ -1650,7 +1590,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_013_3(state2, goal))
@@ -1679,7 +1618,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1702,7 +1640,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -1728,7 +1665,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1751,7 +1687,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -1774,7 +1709,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_2_3(state3, goal))
@@ -1800,7 +1734,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1823,7 +1756,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -1849,7 +1781,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1872,7 +1803,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -1898,7 +1828,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1921,7 +1850,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -1944,7 +1872,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_2_3(state3, goal))
@@ -1970,7 +1897,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_2_3(state1, goal))
@@ -1993,7 +1919,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_2_3(state2, goal))
@@ -2022,7 +1947,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2045,7 +1969,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2071,7 +1994,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2094,7 +2016,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2120,7 +2041,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2143,7 +2063,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2166,7 +2085,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_6_3(state3, goal))
@@ -2192,7 +2110,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2215,7 +2132,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2238,7 +2154,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
                                         if (is_goal_6_3(state3, goal))
@@ -2264,7 +2179,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2287,7 +2201,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2313,7 +2226,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
                                         if (is_goal_6_3(state1, goal))
@@ -2336,7 +2248,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                     if (!in_bfs3)
                                     {
-                                        steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
                                         if (is_goal_6_3(state2, goal))
@@ -2400,7 +2311,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2423,7 +2333,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2449,7 +2358,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2472,7 +2380,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2498,7 +2405,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2521,7 +2427,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2547,7 +2452,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2570,7 +2474,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2593,7 +2496,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_4578_2(state3, goal))
@@ -2616,7 +2518,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
                                     if (is_goal_4578_2(state4, goal))
@@ -2642,7 +2543,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2665,7 +2565,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2688,7 +2587,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_4578_2(state3, goal))
@@ -2714,7 +2612,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2737,7 +2634,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2763,7 +2659,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2786,7 +2681,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2809,7 +2703,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_4578_2(state3, goal))
@@ -2835,7 +2728,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_4578_2(state1, goal))
@@ -2858,7 +2750,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_4578_2(state2, goal))
@@ -2887,7 +2778,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -2910,7 +2800,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -2935,7 +2824,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -2958,7 +2846,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -2981,7 +2868,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_013_2(state3, goal))
@@ -3007,7 +2893,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3030,7 +2915,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3056,7 +2940,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3079,7 +2962,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3102,7 +2984,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_013_2(state3, goal))
@@ -3128,7 +3009,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3151,7 +3031,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3174,7 +3053,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_013_2(state3, goal))
@@ -3197,7 +3075,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
                                     if (is_goal_013_2(state4, goal))
@@ -3223,7 +3100,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3246,7 +3122,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3272,7 +3147,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3295,7 +3169,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3321,7 +3194,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_013_2(state1, goal))
@@ -3344,7 +3216,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_013_2(state2, goal))
@@ -3373,7 +3244,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3396,7 +3266,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3421,7 +3290,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3444,7 +3312,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3467,7 +3334,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_2_2(state3, goal))
@@ -3493,7 +3359,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3516,7 +3381,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3542,7 +3406,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3565,7 +3428,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3591,7 +3453,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3614,7 +3475,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3637,7 +3497,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_2_2(state3, goal))
@@ -3660,7 +3519,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
                                     if (is_goal_2_2(state4, goal))
@@ -3686,7 +3544,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3709,7 +3566,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3732,7 +3588,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_2_2(state3, goal))
@@ -3758,7 +3613,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3781,7 +3635,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3807,7 +3660,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_2_2(state1, goal))
@@ -3830,7 +3682,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_2_2(state2, goal))
@@ -3859,7 +3710,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -3882,7 +3732,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -3907,7 +3756,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -3930,7 +3778,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -3956,7 +3803,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -3979,7 +3825,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4002,7 +3847,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_6_2(state3, goal))
@@ -4028,7 +3872,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -4051,7 +3894,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4074,7 +3916,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_6_2(state3, goal))
@@ -4097,7 +3938,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
                                     if (is_goal_6_2(state4, goal))
@@ -4123,7 +3963,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -4146,7 +3985,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4172,7 +4010,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -4195,7 +4032,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4221,7 +4057,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -4244,7 +4079,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4267,7 +4101,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
                                     if (is_goal_6_2(state3, goal))
@@ -4293,7 +4126,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
                                     if (is_goal_6_2(state1, goal))
@@ -4316,7 +4148,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                                 if (!in_bfs2)
                                 {
-                                    steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
                                     if (is_goal_6_2(state2, goal))
@@ -4378,7 +4209,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4428,7 +4258,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4481,7 +4310,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4531,7 +4359,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4581,7 +4408,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4634,7 +4460,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4684,7 +4509,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4737,7 +4561,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4787,7 +4610,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4837,7 +4659,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4890,7 +4711,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4940,7 +4760,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -4990,7 +4809,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5040,7 +4858,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state4);
                             queue1.push(state4);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5093,7 +4910,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5143,7 +4959,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5193,7 +5008,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5246,7 +5060,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5296,7 +5109,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5349,7 +5161,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5399,7 +5210,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5449,7 +5259,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5502,7 +5311,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5552,7 +5360,6 @@ void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &dept
 
                         if (!in_bfs1)
                         {
-                            steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
@@ -5678,4 +5485,31 @@ bool is_goal_6_3(const std::vector<int> &state, const std::vector<int> &goal)
 bool is_goal_6_4(const std::vector<int> &state, const std::vector<int> &goal)
 {
     return (state[3] == goal[3] && state[4] == goal[4] && state[6] == goal[6] && state[7] == goal[7]);
+}
+
+void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal)
+{
+    size_t steps{goal_node.parents.size()};
+    std::cout << "\u001b[32;1m"; //Bright Green
+    std::cout << "\n*************************\n";
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
+    std::cout << "\n*************************\n\u001b[0m";
+
+    for (size_t i{0}; i < steps - 1; i++)
+        print_puzzle(i, goal_node.parents[i]);
+
+    std::cout << "\u001b[32;1m\n\nGoal State:\nStep " << steps << ":\n";
+    for (int i{}; i < 9; i++)
+    {
+        if (goal[i] == 0)
+            std::cout << " ";
+        else
+            std::cout << goal[i];
+        if (i % 3 == 2)
+            std::cout << "\n";
+        else
+            std::cout << " ";
+    }
+    std::cout << "\n*************************\n";
+    std::cout << "\u001b[0m"; //reset color and style
 }
