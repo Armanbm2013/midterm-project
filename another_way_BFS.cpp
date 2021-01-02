@@ -2,9 +2,9 @@
 #include "another_way_BFS.h"
 #include "Node.h"
 
-void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit)
+void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &depth_limit)
 {
-    if (!isSolvable(init, goal))
+    if (!isSolvable(i, goal))
     {
         std::cout << "\u001b[31;1m"; //Bright Red
         std::cout << "\n*************************\n";
@@ -13,7 +13,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
         std::cout << "\u001b[0m"; //reset color and style
     }
 
-    else if (init == goal) //when the initial puzzle is the goal puzzle!
+    else if (i == goal) //when the initial puzzle is the goal puzzle!
     {
         std::cout << "\u001b[32;1m"; //Bright Green
         std::cout << "\n*************************\n";
@@ -24,7 +24,8 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 
     else
     {
-        init.push_back(0); //This is the depth level of the Node
+        i.push_back(0); //This is the depth level of the Node
+        Node init{i};
 
         bool goal_finded{false};   //We use it to end the while loop
         bool depth_reached{false}; //We use it to stop function when we traversed all Node till ours depth limit
@@ -39,8 +40,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                 break;
             }
 
-        print_puzzle(steps, init);
-
         while (!goal_finded && !depth_reached)
         {
             bool condition_1{false};
@@ -48,27 +47,27 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
             bool condition_3{false};
             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
             {
-                condition_1 = is_goal_4578_1(init, goal);
-                condition_2 = is_goal_4578_2(init, goal);
-                condition_3 = is_goal_4578_3(init, goal);
+                condition_1 = is_goal_4578_1(init.state, goal);
+                condition_2 = is_goal_4578_2(init.state, goal);
+                condition_3 = is_goal_4578_3(init.state, goal);
             }
             else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
             {
-                condition_1 = is_goal_013_1(init, goal);
-                condition_2 = is_goal_013_2(init, goal);
-                condition_3 = is_goal_013_3(init, goal);
+                condition_1 = is_goal_013_1(init.state, goal);
+                condition_2 = is_goal_013_2(init.state, goal);
+                condition_3 = is_goal_013_3(init.state, goal);
             }
             else if (goal_zero == 2)
             {
-                condition_1 = is_goal_2_1(init, goal);
-                condition_2 = is_goal_2_2(init, goal);
-                condition_3 = is_goal_2_3(init, goal);
+                condition_1 = is_goal_2_1(init.state, goal);
+                condition_2 = is_goal_2_2(init.state, goal);
+                condition_3 = is_goal_2_3(init.state, goal);
             }
             else
             {
-                condition_1 = is_goal_6_1(init, goal);
-                condition_2 = is_goal_6_2(init, goal);
-                condition_3 = is_goal_6_3(init, goal);
+                condition_1 = is_goal_6_1(init.state, goal);
+                condition_2 = is_goal_6_2(init.state, goal);
+                condition_3 = is_goal_6_3(init.state, goal);
             }
 
             if (condition_1)
@@ -81,15 +80,15 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                          **************************************************************************Step 4 of solving the puzzle**************************************************************************
                          ********************************************************************************************************************************************************************************/
 
-                        std::queue<std::vector<int>> queue4{};    //a queue to find a node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
-                        std::vector<std::vector<int>> bfs4{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
+                        std::queue<Node> queue4{};    //a queue to find a node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
+                        std::vector<Node> bfs4{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_4(a,goal) or is_goal_013_4(a,goal) or is_goal_2_4(a,goal) or is_goal_6_4(a,goal) is true
                         queue4.push(bfs4.back());
 
                         bool in_bfs4{false};
 
                         while (true)
                         {
-                            std::vector<int> temp1 = queue4.front();
+                            Node temp1 = queue4.front();
                             queue4.pop();
 
                             if (depth_limit != -1) //if depth limit was given by the user
@@ -112,9 +111,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -132,14 +131,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -157,7 +155,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -165,9 +162,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -185,14 +182,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -210,7 +206,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -218,9 +213,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -238,14 +233,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -263,7 +257,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -271,9 +264,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 8)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -291,14 +284,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -316,7 +308,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -327,9 +318,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -347,14 +338,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -372,7 +362,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -380,9 +369,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -400,14 +389,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -425,7 +413,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -433,9 +420,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -453,14 +440,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -478,7 +464,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -486,9 +471,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -506,14 +491,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -531,7 +515,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -542,9 +525,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -562,14 +545,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -587,7 +569,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -595,9 +576,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 2)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -615,14 +596,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -640,7 +620,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -648,9 +627,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -668,14 +647,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -693,7 +671,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -701,9 +678,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -721,14 +698,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -746,7 +722,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -757,9 +732,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -777,14 +752,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -802,7 +776,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -810,9 +783,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -830,14 +803,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -855,7 +827,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -863,9 +834,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -883,14 +854,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -908,7 +878,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -916,9 +885,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -936,14 +905,13 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state1);
                                     }
                                     in_bfs4 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs4)
+                                    for (auto &node : bfs4)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs4 = true;
                                             break;
@@ -961,7 +929,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                             goal_finded = true;
                                             break;
                                         }
-                                        print_puzzle(steps, state2);
                                     }
                                     in_bfs4 = false;
                                 }
@@ -975,15 +942,15 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                          **************************************************************************Step 3 of solving the puzzle**************************************************************************
                          ********************************************************************************************************************************************************************************/
 
-                        std::queue<std::vector<int>> queue3{};    //a queue to find a node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
-                        std::vector<std::vector<int>> bfs3{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
+                        std::queue<Node> queue3{};    //a queue to find a node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
+                        std::vector<Node> bfs3{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_3(a,goal) or is_goal_013_3(a,goal) or is_goal_2_3(a,goal) or is_goal_6_3(a,goal) is true
                         queue3.push(bfs3.back());
 
                         bool in_bfs3{false};
 
                         while (true)
                         {
-                            std::vector<int> temp1 = queue3.front();
+                            Node temp1 = queue3.front();
                             queue3.pop();
 
                             if (depth_limit != -1) //if depth limit was given by the user
@@ -1006,9 +973,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1020,7 +987,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1030,9 +996,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1044,7 +1010,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1057,9 +1022,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1071,7 +1036,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1081,9 +1045,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1095,7 +1059,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1105,9 +1068,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1119,7 +1082,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_4578_3(state3, goal))
                                         {
                                             init = state3;
@@ -1132,9 +1094,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1146,7 +1108,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1156,9 +1117,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1170,7 +1131,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1183,9 +1143,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1197,7 +1157,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1207,9 +1166,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1221,7 +1180,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1234,9 +1192,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1248,7 +1206,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1258,9 +1215,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1272,7 +1229,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1282,9 +1238,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1296,7 +1252,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_4578_3(state3, goal))
                                         {
                                             init = state3;
@@ -1309,9 +1264,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 8)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1323,7 +1278,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_4578_3(state1, goal))
                                         {
                                             init = state1;
@@ -1333,9 +1287,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1347,7 +1301,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_4578_3(state2, goal))
                                         {
                                             init = state2;
@@ -1363,9 +1316,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1377,7 +1330,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1387,9 +1339,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1401,7 +1353,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1414,9 +1365,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1428,7 +1379,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1438,9 +1388,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1452,7 +1402,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1465,9 +1414,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1479,7 +1428,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1489,9 +1437,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1503,7 +1451,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1513,9 +1460,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1527,7 +1474,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_013_3(state3, goal))
                                         {
                                             init = state3;
@@ -1540,9 +1486,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1554,7 +1500,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1564,9 +1509,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1578,7 +1523,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1588,9 +1532,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1602,7 +1546,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_013_3(state3, goal))
                                         {
                                             init = state3;
@@ -1615,9 +1558,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1629,7 +1572,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1639,9 +1581,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1653,7 +1595,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1666,9 +1607,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1680,7 +1621,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_013_3(state1, goal))
                                         {
                                             init = state1;
@@ -1690,9 +1630,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1704,7 +1644,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_013_3(state2, goal))
                                         {
                                             init = state2;
@@ -1720,9 +1659,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1734,7 +1673,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -1744,9 +1682,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1758,7 +1696,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -1771,9 +1708,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1785,7 +1722,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -1795,9 +1731,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1809,7 +1745,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -1819,9 +1754,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1833,7 +1768,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_2_3(state3, goal))
                                         {
                                             init = state3;
@@ -1846,9 +1780,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 2)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1860,7 +1794,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -1870,9 +1803,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1884,7 +1817,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -1897,9 +1829,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1911,7 +1843,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -1921,9 +1852,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1935,7 +1866,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -1948,9 +1878,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1962,7 +1892,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -1972,9 +1901,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -1986,7 +1915,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -1996,9 +1924,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2010,7 +1938,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_2_3(state3, goal))
                                         {
                                             init = state3;
@@ -2023,9 +1950,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2037,7 +1964,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_2_3(state1, goal))
                                         {
                                             init = state1;
@@ -2047,9 +1973,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2061,7 +1987,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_2_3(state2, goal))
                                         {
                                             init = state2;
@@ -2077,9 +2002,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2091,7 +2016,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2101,9 +2025,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2115,7 +2039,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2128,9 +2051,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2142,7 +2065,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2152,9 +2074,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2166,7 +2088,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2179,9 +2100,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2193,7 +2114,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2203,9 +2123,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2217,7 +2137,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2227,9 +2146,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2241,7 +2160,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_6_3(state3, goal))
                                         {
                                             init = state3;
@@ -2254,9 +2172,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2268,7 +2186,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2278,9 +2195,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2292,7 +2209,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2302,9 +2218,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state3)
+                                        if (node.state == state3)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2316,7 +2232,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state3);
                                         queue3.push(state3);
-                                        print_puzzle(steps, state3);
                                         if (is_goal_6_3(state3, goal))
                                         {
                                             init = state3;
@@ -2329,9 +2244,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2343,7 +2258,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2353,9 +2267,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2367,7 +2281,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2380,9 +2293,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state1)
+                                        if (node.state == state1)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2394,7 +2307,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state1);
                                         queue3.push(state1);
-                                        print_puzzle(steps, state1);
                                         if (is_goal_6_3(state1, goal))
                                         {
                                             init = state1;
@@ -2404,9 +2316,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     in_bfs3 = false;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (std::vector<int> &puzzle : bfs3)
+                                    for (auto &node : bfs3)
                                     {
-                                        if (puzzle == state2)
+                                        if (node.state == state2)
                                         {
                                             in_bfs3 = true;
                                             break;
@@ -2418,7 +2330,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                         steps++;
                                         bfs3.push_back(state2);
                                         queue3.push(state2);
-                                        print_puzzle(steps, state2);
                                         if (is_goal_6_3(state2, goal))
                                         {
                                             init = state2;
@@ -2438,15 +2349,15 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                      **************************************************************************Step 2 of solving the puzzle**************************************************************************
                      ********************************************************************************************************************************************************************************/
 
-                    std::queue<std::vector<int>> queue2{};    //a queue to find a node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
-                    std::vector<std::vector<int>> bfs2{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
+                    std::queue<Node> queue2{};    //a queue to find a node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
+                    std::vector<Node> bfs2{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_2(a,goal) or is_goal_013_2(a,goal) or is_goal_2_2(a,goal) or is_goal_6_2(a,goal) is true
                     queue2.push(bfs2.back());
 
                     bool in_bfs2{false};
 
                     while (true)
                     {
-                        std::vector<int> temp1 = queue2.front();
+                        Node temp1 = queue2.front();
                         queue2.pop();
 
                         if (depth_limit != -1) //if depth limit was given by the user
@@ -2469,9 +2380,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             if (i == 1)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2483,7 +2394,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2493,9 +2403,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2507,7 +2417,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2520,9 +2429,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 2)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2534,7 +2443,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2544,9 +2452,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2558,7 +2466,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2571,9 +2478,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 3)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2585,7 +2492,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2595,9 +2501,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2609,7 +2515,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2622,9 +2527,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 4)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2636,7 +2541,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2646,9 +2550,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2660,7 +2564,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2670,9 +2573,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2684,7 +2587,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_4578_2(state3, goal))
                                     {
                                         init = state3;
@@ -2694,9 +2596,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state4)
+                                    if (node.state == state4)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2708,7 +2610,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
-                                    print_puzzle(steps, state4);
                                     if (is_goal_4578_2(state4, goal))
                                     {
                                         init = state4;
@@ -2721,9 +2622,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 5)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2735,7 +2636,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2745,9 +2645,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2759,7 +2659,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2769,9 +2668,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2783,7 +2682,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_4578_2(state3, goal))
                                     {
                                         init = state3;
@@ -2796,9 +2694,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 6)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2810,7 +2708,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2820,9 +2717,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2834,7 +2731,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2847,9 +2743,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 7)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2861,7 +2757,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2871,9 +2766,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2885,7 +2780,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2895,9 +2789,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2909,7 +2803,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_4578_2(state3, goal))
                                     {
                                         init = state3;
@@ -2922,9 +2815,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 8)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2936,7 +2829,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_4578_2(state1, goal))
                                     {
                                         init = state1;
@@ -2946,9 +2838,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2960,7 +2852,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_4578_2(state2, goal))
                                     {
                                         init = state2;
@@ -2976,9 +2867,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             if (i == 0)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -2990,7 +2881,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3000,9 +2890,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3014,7 +2904,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3026,9 +2915,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 1)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3040,7 +2929,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3050,9 +2938,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3064,7 +2952,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3074,9 +2961,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3088,7 +2975,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_013_2(state3, goal))
                                     {
                                         init = state3;
@@ -3101,9 +2987,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 2)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3115,7 +3001,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3125,9 +3010,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3139,7 +3024,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3152,9 +3036,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 3)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3166,7 +3050,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3176,9 +3059,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3190,7 +3073,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3200,9 +3082,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3214,7 +3096,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_013_2(state3, goal))
                                     {
                                         init = state3;
@@ -3227,9 +3108,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 4)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3241,7 +3122,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3251,9 +3131,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3265,7 +3145,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3275,9 +3154,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3289,7 +3168,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_013_2(state3, goal))
                                     {
                                         init = state3;
@@ -3299,9 +3177,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state4)
+                                    if (node.state == state4)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3313,7 +3191,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
-                                    print_puzzle(steps, state4);
                                     if (is_goal_013_2(state4, goal))
                                     {
                                         init = state4;
@@ -3326,9 +3203,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 5)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3340,7 +3217,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3350,9 +3226,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3364,7 +3240,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3377,9 +3252,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 6)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3391,7 +3266,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3401,9 +3275,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3415,7 +3289,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3428,9 +3301,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 7)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3442,7 +3315,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_013_2(state1, goal))
                                     {
                                         init = state1;
@@ -3452,9 +3324,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3466,7 +3338,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_013_2(state2, goal))
                                     {
                                         init = state2;
@@ -3482,9 +3353,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             if (i == 0)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3496,7 +3367,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3506,9 +3376,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3520,7 +3390,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3532,9 +3401,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 1)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3546,7 +3415,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3556,9 +3424,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3570,7 +3438,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3580,9 +3447,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3594,7 +3461,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_2_2(state3, goal))
                                     {
                                         init = state3;
@@ -3607,9 +3473,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 2)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3621,7 +3487,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3631,9 +3496,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3645,7 +3510,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3658,9 +3522,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 3)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3672,7 +3536,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3682,9 +3545,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3696,7 +3559,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3709,9 +3571,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 4)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3723,7 +3585,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3733,9 +3594,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3747,7 +3608,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3757,9 +3617,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3771,7 +3631,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_2_2(state3, goal))
                                     {
                                         init = state3;
@@ -3781,9 +3640,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state4)
+                                    if (node.state == state4)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3795,7 +3654,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
-                                    print_puzzle(steps, state4);
                                     if (is_goal_2_2(state4, goal))
                                     {
                                         init = state4;
@@ -3808,9 +3666,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 5)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3822,7 +3680,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3832,9 +3689,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3846,7 +3703,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3856,9 +3712,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3870,7 +3726,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_2_2(state3, goal))
                                     {
                                         init = state3;
@@ -3883,9 +3738,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 7)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3897,7 +3752,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3907,9 +3761,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3921,7 +3775,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3934,9 +3787,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 8)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3948,7 +3801,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_2_2(state1, goal))
                                     {
                                         init = state1;
@@ -3958,9 +3810,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -3972,7 +3824,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_2_2(state2, goal))
                                     {
                                         init = state2;
@@ -3988,9 +3839,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             if (i == 0)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4002,7 +3853,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4012,9 +3862,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4026,7 +3876,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4038,9 +3887,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 1)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4052,7 +3901,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4062,9 +3910,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4076,7 +3924,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4089,9 +3936,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 3)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4103,7 +3950,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4113,9 +3959,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4127,7 +3973,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4137,9 +3982,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4151,7 +3996,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_6_2(state3, goal))
                                     {
                                         init = state3;
@@ -4164,9 +4008,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 4)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4178,7 +4022,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4188,9 +4031,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4202,7 +4045,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4212,9 +4054,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4226,7 +4068,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_6_2(state3, goal))
                                     {
                                         init = state3;
@@ -4236,9 +4077,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state4)
+                                    if (node.state == state4)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4250,7 +4091,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state4);
                                     queue2.push(state4);
-                                    print_puzzle(steps, state4);
                                     if (is_goal_6_2(state4, goal))
                                     {
                                         init = state4;
@@ -4263,9 +4103,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 5)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4277,7 +4117,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4287,9 +4126,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4301,7 +4140,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4314,9 +4152,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 6)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4328,7 +4166,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4338,9 +4175,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4352,7 +4189,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4365,9 +4201,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 7)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4379,7 +4215,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4389,9 +4224,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4403,7 +4238,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4413,9 +4247,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state3)
+                                    if (node.state == state3)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4427,7 +4261,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state3);
                                     queue2.push(state3);
-                                    print_puzzle(steps, state3);
                                     if (is_goal_6_2(state3, goal))
                                     {
                                         init = state3;
@@ -4440,9 +4273,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             else if (i == 8)
                             {
                                 std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state1)
+                                    if (node.state == state1)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4454,7 +4287,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state1);
                                     queue2.push(state1);
-                                    print_puzzle(steps, state1);
                                     if (is_goal_6_2(state1, goal))
                                     {
                                         init = state1;
@@ -4464,9 +4296,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 in_bfs2 = false;
 
                                 std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                for (std::vector<int> &puzzle : bfs2)
+                                for (auto &node : bfs2)
                                 {
-                                    if (puzzle == state2)
+                                    if (node.state == state2)
                                     {
                                         in_bfs2 = true;
                                         break;
@@ -4478,7 +4310,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                     steps++;
                                     bfs2.push_back(state2);
                                     queue2.push(state2);
-                                    print_puzzle(steps, state2);
                                     if (is_goal_6_2(state2, goal))
                                     {
                                         init = state2;
@@ -4498,15 +4329,15 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                  **************************************************************************Step 1 of solving the puzzle**************************************************************************
                  ********************************************************************************************************************************************************************************/
 
-                std::queue<std::vector<int>> queue1{};    //a queue to find a node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
-                std::vector<std::vector<int>> bfs1{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
+                std::queue<Node> queue1{};    //a queue to find a node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
+                std::vector<Node> bfs1{init}; //a vector to store all of traveresed states until finding the node "a" that is_goal_4578_1(a,goal) or is_goal_013_1(a,goal) or is_goal_2_1(a,goal) or is_goal_6_1(a,goal) is true
                 queue1.push(bfs1.back());
 
                 bool in_bfs1{false};
 
                 while (true)
                 {
-                    std::vector<int> temp1 = queue1.front();
+                    Node temp1 = queue1.front();
                     queue1.pop();
 
                     if (depth_limit != -1) //if depth limit was given by the user
@@ -4527,9 +4358,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     if (i == 0)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4541,7 +4372,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -4578,9 +4408,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4592,7 +4422,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -4632,9 +4461,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 1)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4646,7 +4475,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -4683,9 +4511,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4697,7 +4525,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -4734,9 +4561,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state3 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state3)
+                            if (node.state == state3)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4748,7 +4575,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
-                            print_puzzle(steps, state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state3, goal))
@@ -4788,9 +4614,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 2)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4802,7 +4628,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -4839,9 +4664,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4853,7 +4678,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -4893,9 +4717,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 3)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4907,7 +4731,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -4944,9 +4767,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -4958,7 +4781,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -4995,9 +4817,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state3)
+                            if (node.state == state3)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5009,7 +4831,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
-                            print_puzzle(steps, state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state3, goal))
@@ -5049,9 +4870,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 4)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5063,7 +4884,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -5100,9 +4920,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5114,7 +4934,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -5151,9 +4970,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state3)
+                            if (node.state == state3)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5165,7 +4984,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
-                            print_puzzle(steps, state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state3, goal))
@@ -5202,9 +5020,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state4 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state4)
+                            if (node.state == state4)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5216,7 +5034,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state4);
                             queue1.push(state4);
-                            print_puzzle(steps, state4);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state4, goal))
@@ -5256,9 +5073,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 5)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5270,7 +5087,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -5307,9 +5123,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5321,7 +5137,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -5358,9 +5173,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state3)
+                            if (node.state == state3)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5372,7 +5187,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
-                            print_puzzle(steps, state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state3, goal))
@@ -5412,9 +5226,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 6)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5426,7 +5240,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -5463,9 +5276,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5477,7 +5290,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -5517,9 +5329,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 7)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5531,7 +5343,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -5568,9 +5379,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5582,7 +5393,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))
@@ -5619,9 +5429,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state3)
+                            if (node.state == state3)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5633,7 +5443,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state3);
                             queue1.push(state3);
-                            print_puzzle(steps, state3);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state3, goal))
@@ -5673,9 +5482,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                     else if (i == 8)
                     {
                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state1)
+                            if (node.state == state1)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5687,7 +5496,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state1);
                             queue1.push(state1);
-                            print_puzzle(steps, state1);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state1, goal))
@@ -5724,9 +5532,9 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         in_bfs1 = false;
 
                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                        for (std::vector<int> &puzzle : bfs1)
+                        for (auto &node : bfs1)
                         {
-                            if (puzzle == state2)
+                            if (node.state == state2)
                             {
                                 in_bfs1 = true;
                                 break;
@@ -5738,7 +5546,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             steps++;
                             bfs1.push_back(state2);
                             queue1.push(state2);
-                            print_puzzle(steps, state2);
                             if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
                             {
                                 if (is_goal_4578_1(state2, goal))

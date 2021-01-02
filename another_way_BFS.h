@@ -6,7 +6,7 @@
 #include <queue>
 #include "Node.h"
 
-void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit = -1);
+void Fast_BFS(std::vector<int> &i, const std::vector<int> &goal, const int &depth_limit = -1);
 
 bool is_goal_4578_1(const std::vector<int> &state, const std::vector<int> &goal);
 bool is_goal_4578_2(const std::vector<int> &state, const std::vector<int> &goal);
