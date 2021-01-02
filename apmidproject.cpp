@@ -235,7 +235,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
     }
     if (depth_choice == 1)
     {
-        std::cout << "\u001b[33;1m\nEnter Depth limit: ";
+        std::cout << "\u001b[33;1m\nEnter Depth limit: \u001b[0m";
         std::cin >> depth_limit;
         if (choice == 1)
             Fast_BFS(init, goal, depth_limit);
