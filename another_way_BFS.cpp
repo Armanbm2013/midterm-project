@@ -2364,13 +2364,10 @@ void Fast_BFS(std::vector<int> &initial, const std::vector<int> &goal, const int
                     queue2.push(bfs2.back());
 
                     bool in_bfs2{false};
-                    std::cout << "\ntest 1\n";
                     while (true)
                     {
-                        std::cout << "\ntest 2\n";
                         Node temp1 = queue2.front();
                         queue2.pop();
-                        std::cout << "\ntest 3\n";
                         if (depth_limit != -1) //if depth limit was given by the user
                             if (temp1[9] >= depth_limit)
                             {
