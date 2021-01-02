@@ -3,6 +3,7 @@
 #include "BFS.h"
 #include "DFS.h"
 #include "another_way_BFS.h"
+#include "Node.h"
 
 bool in_vec(const std::vector<int> &v, int a)
 {

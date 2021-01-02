@@ -12,3 +12,8 @@ Node::Node(const Node &parent, std::vector<int> &state)
     this->state = move(state);
     parents.push_back(this->state);
 }
+
+int Node::operator[](const int &n)
+{
+    return state[n];
+}
