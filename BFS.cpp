@@ -4,20 +4,20 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
 {
     if (!isSolvable(init, goal))
     {
-        std::cout << "\033[0;31m"; //red
+        std::cout << "\u001b[31;1m"; //Bright Red
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
-        std::cout << "\u001b[0m"; //reset
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
-        std::cout << "\033[0;32m"; //green
+        std::cout << "\u001b[32;1m"; //Bright Green
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
-        std::cout << "\u001b[0m"; //reset
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else
@@ -41,7 +41,7 @@ void BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             if (depth_limit != -1) //if depth limit was given by the user
                 if (temp[9] >= depth_limit)
                 {
-                    std::cout << "No answers find till depth " << depth_limit << "\n";
+                    std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                     break;
                 }
 
@@ -819,9 +819,9 @@ bool is_goal(const std::vector<int> &state, const std::vector<int> &goal)
 
 void solved(int steps, const std::vector<int> &goal)
 {
-    std::cout << "\033[0;32m"; //green
+    std::cout << "\u001b[32;1m"; //Bright Green
     std::cout << "\n*************************\n";
-    std::cout << "******PUZZLE SOLVED******\nNumber of steps: " << steps;
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
     std::cout << "\n*************************\n";
     std::cout << "\nStep " << steps << ":\n";
     for (int i{}; i < 9; i++)
@@ -836,14 +836,14 @@ void solved(int steps, const std::vector<int> &goal)
             std::cout << " ";
     }
     std::cout << "\n*************************\n";
-    std::cout << "\u001b[0m"; //reset
+    std::cout << "\u001b[0m"; //reset color and style
 }
 
 void print_puzzle(int steps, const std::vector<int> &state)
 {
-    std::cout << "\033[0;31m"; //red
+    std::cout << "\u001b[31;1m"; //red
     std::cout << "\nStep " << steps << ":\n";
-    std::cout << "\033[0;34m"; //blue
+    std::cout << "\u001b[34;1m"; //blue
     for (int i{}; i < 9; i++)
     {
         if (state[i] == 0)
@@ -855,7 +855,7 @@ void print_puzzle(int steps, const std::vector<int> &state)
         else
             std::cout << " ";
     }
-    std::cout << "\u001b[0m"; //reset
+    std::cout << "\u001b[0m"; //reset color and style
 }
 
 //following code is copied from "https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/" ***with a little modification***

@@ -5,20 +5,20 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
 {
     if (!isSolvable(init, goal))
     {
-        std::cout << "\033[0;31m"; //red
+        std::cout << "\u001b[31;1m"; //Bright Red
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
-        std::cout << "\u001b[0m"; //reset
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
-        std::cout << "\033[0;32m"; //green
+        std::cout << "\u001b[32;1m"; //Bright Green
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
-        std::cout << "\u001b[0m"; //reset
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else
@@ -846,7 +846,7 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             }
             if (stack.empty())
             {
-                std::cout << "No answers find till depth " << depth_limit << "\n";
+                std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                 break;
             }
         }

@@ -5,20 +5,20 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
 {
     if (!isSolvable(init, goal))
     {
-        std::cout << "\033[0;31m"; //red
+        std::cout << "\u001b[31;1m"; //Bright Red
         std::cout << "*************************\n";
         std::cout << "This puzzle is not solvable\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else if (init == goal) //when the initial puzzle is the goal puzzle!
     {
-        std::cout << "\033[0;32m"; //green
+        std::cout << "\u001b[32;1m"; //Bright Green
         std::cout << "*************************\n";
         std::cout << "******PUZZLE SOLVED******\nNumber of steps: 0 || your initial puzzle is the goal puzzle\n";
         std::cout << "*************************\n";
-        std::cout << "\033[0;37m"; //gray
+        std::cout << "\u001b[0m"; //reset color and style
     }
 
     else
@@ -56,7 +56,6 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                 condition_1 = is_goal_013_1(init, goal);
                 condition_2 = is_goal_013_2(init, goal);
                 condition_3 = is_goal_013_3(init, goal);
-                std::cout << "\ndone\n";
             }
             else if (goal_zero == 2)
             {
@@ -96,7 +95,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (temp1[9] >= depth_limit)
                                 {
                                     depth_reached = true;
-                                    std::cout << "No answers find till depth " << depth_limit << "\n";
+                                    std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                                     break;
                                 }
 
@@ -990,7 +989,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                                 if (temp1[9] >= depth_limit)
                                 {
                                     depth_reached = true;
-                                    std::cout << "No answers find till depth " << depth_limit << "\n";
+                                    std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                                     break;
                                 }
 
@@ -2453,7 +2452,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                             if (temp1[9] >= depth_limit)
                             {
                                 depth_reached = true;
-                                std::cout << "No answers find till depth " << depth_limit << "\n";
+                                std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                                 break;
                             }
 
@@ -4513,7 +4512,7 @@ void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &d
                         if (temp1[9] >= depth_limit)
                         {
                             depth_reached = true;
-                            std::cout << "No answers find till depth " << depth_limit << "\n";
+                            std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
                             break;
                         }
 
