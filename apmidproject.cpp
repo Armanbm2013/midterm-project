@@ -206,7 +206,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
 {
     int choice{};
     std::cout << "\u001b[35;1m\nWhich algorithm do you want to solve your puzzle with?\n\n";
-    std::cout << "\u001b[31;1m1 \u001b[33;1mFast BFS\n\u001b[31;1m2 \u001b[33;1mDFS\n\n\u001b[35;1mInput the number you choose: ";
+    std::cout << "\u001b[31;1m1 \u001b[33;1mBFS\n\u001b[31;1m2 \u001b[33;1mDFS\n\n\u001b[35;1mInput the number you choose: ";
     std::cout << "\u001b[0m"; //reset color and style
     std::cin >> choice;
     while (choice != 1 && choice != 2)
@@ -236,7 +236,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         std::cout << "\u001b[33;1m\nEnter Depth limit: \u001b[0m";
         std::cin >> depth_limit;
         if (choice == 1)
-            Fast_BFS(init, goal, depth_limit);
+            BFS(init, goal, depth_limit);
 
         else
             DFS(init, goal, depth_limit);
@@ -244,7 +244,7 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
     else
     {
         if (choice == 1)
-            Fast_BFS(init, goal);
+            BFS(init, goal);
         else if (choice == 2)
             DFS(init, goal);
     }
