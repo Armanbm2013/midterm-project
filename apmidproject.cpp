@@ -240,20 +240,14 @@ void choose_algorithm(std::vector<int> &init, const std::vector<int> &goal)
         if (choice == 1)
             DFS(init, goal, depth_limit);
         else
-        {
-
-            Fast_BFS(first_state, goal, depth_limit);
-        }
+            Fast_BFS(init, goal, depth_limit);
     }
     else
     {
         if (choice == 1)
             DFS(init, goal);
         else if (choice == 2)
-        {
-            Node first_state{init};
-            Fast_BFS(first_state, goal);
-        }
+            Fast_BFS(init, goal);
     }
 }
 

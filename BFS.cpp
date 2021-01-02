@@ -841,9 +841,9 @@ void solved(int steps, const std::vector<int> &goal)
 
 void print_puzzle(int steps, const std::vector<int> &state)
 {
-    std::cout << "\u001b[31;1m"; //red
+    std::cout << "\u001b[31;1m"; //Bright Red
     std::cout << "\nStep " << steps << ":\n";
-    std::cout << "\u001b[34;1m"; //blue
+    std::cout << "\u001b[34;1m"; //Bright Blue
     for (int i{}; i < 9; i++)
     {
         if (state[i] == 0)

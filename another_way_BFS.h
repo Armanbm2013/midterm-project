@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include "Node.h"
 
 void Fast_BFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit = -1);
 
