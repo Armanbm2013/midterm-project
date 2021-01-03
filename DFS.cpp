@@ -49,940 +49,196 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
             if (i == 0)
             {
                 std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 1)
             {
                 std::vector<int> state1 = std::vector<int>{temp[1], temp[0], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state3[0])
-                        if (dfs[i][1] == state3[1])
-                            if (dfs[i][2] == state3[2])
-                                if (dfs[i][3] == state3[3])
-                                    if (dfs[i][4] == state3[4])
-                                        if (dfs[i][5] == state3[5])
-                                            if (dfs[i][6] == state3[6])
-                                                if (dfs[i][7] == state3[7])
-                                                    if (dfs[i][8] == state3[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state3[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state3);
-                    stack.push(state3);
-                    if (is_goal(state3, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num3{traverse_state(dfs, stack, temp, state3, goal, depth_limit, in_dfs)};
+                if (num3 == 0)
+                    break;
+                else if (num3 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 2)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 3)
             {
                 std::vector<int> state1 = std::vector<int>{temp[3], temp[1], temp[2], temp[0], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state3[0])
-                        if (dfs[i][1] == state3[1])
-                            if (dfs[i][2] == state3[2])
-                                if (dfs[i][3] == state3[3])
-                                    if (dfs[i][4] == state3[4])
-                                        if (dfs[i][5] == state3[5])
-                                            if (dfs[i][6] == state3[6])
-                                                if (dfs[i][7] == state3[7])
-                                                    if (dfs[i][8] == state3[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state3[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state3);
-                    stack.push(state3);
-                    if (is_goal(state3, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num3{traverse_state(dfs, stack, temp, state3, goal, depth_limit, in_dfs)};
+                if (num3 == 0)
+                    break;
+                else if (num3 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 4)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[4], temp[2], temp[3], temp[1], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[4], temp[3], temp[5], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state3[0])
-                        if (dfs[i][1] == state3[1])
-                            if (dfs[i][2] == state3[2])
-                                if (dfs[i][3] == state3[3])
-                                    if (dfs[i][4] == state3[4])
-                                        if (dfs[i][5] == state3[5])
-                                            if (dfs[i][6] == state3[6])
-                                                if (dfs[i][7] == state3[7])
-                                                    if (dfs[i][8] == state3[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state3[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state3);
-                    stack.push(state3);
-                    if (is_goal(state3, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num3{traverse_state(dfs, stack, temp, state3, goal, depth_limit, in_dfs)};
+                if (num3 == 0)
+                    break;
+                else if (num3 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state4 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state4[0])
-                        if (dfs[i][1] == state4[1])
-                            if (dfs[i][2] == state4[2])
-                                if (dfs[i][3] == state4[3])
-                                    if (dfs[i][4] == state4[4])
-                                        if (dfs[i][5] == state4[5])
-                                            if (dfs[i][6] == state4[6])
-                                                if (dfs[i][7] == state4[7])
-                                                    if (dfs[i][8] == state4[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state4[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state4);
-                    stack.push(state4);
-                    if (is_goal(state4, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num4{traverse_state(dfs, stack, temp, state4, goal, depth_limit, in_dfs)};
+                if (num4 == 0)
+                    break;
+                else if (num4 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 5)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[5], temp[3], temp[4], temp[2], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[5], temp[4], temp[6], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state3[0])
-                        if (dfs[i][1] == state3[1])
-                            if (dfs[i][2] == state3[2])
-                                if (dfs[i][3] == state3[3])
-                                    if (dfs[i][4] == state3[4])
-                                        if (dfs[i][5] == state3[5])
-                                            if (dfs[i][6] == state3[6])
-                                                if (dfs[i][7] == state3[7])
-                                                    if (dfs[i][8] == state3[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state3[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state3);
-                    stack.push(state3);
-                    if (is_goal(state3, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num3{traverse_state(dfs, stack, temp, state3, goal, depth_limit, in_dfs)};
+                if (num3 == 0)
+                    break;
+                else if (num3 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 6)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[6], temp[4], temp[5], temp[3], temp[7], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 7)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[7], temp[5], temp[6], temp[4], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[7], temp[6], temp[8], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state3 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state3[0])
-                        if (dfs[i][1] == state3[1])
-                            if (dfs[i][2] == state3[2])
-                                if (dfs[i][3] == state3[3])
-                                    if (dfs[i][4] == state3[4])
-                                        if (dfs[i][5] == state3[5])
-                                            if (dfs[i][6] == state3[6])
-                                                if (dfs[i][7] == state3[7])
-                                                    if (dfs[i][8] == state3[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state3[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state3);
-                    stack.push(state3);
-                    if (is_goal(state3, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num3{traverse_state(dfs, stack, temp, state3, goal, depth_limit, in_dfs)};
+                if (num3 == 0)
+                    break;
+                else if (num3 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
 
             else if (i == 8)
             {
                 std::vector<int> state1 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[8], temp[6], temp[7], temp[5], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state1[0])
-                        if (dfs[i][1] == state1[1])
-                            if (dfs[i][2] == state1[2])
-                                if (dfs[i][3] == state1[3])
-                                    if (dfs[i][4] == state1[4])
-                                        if (dfs[i][5] == state1[5])
-                                            if (dfs[i][6] == state1[6])
-                                                if (dfs[i][7] == state1[7])
-                                                    if (dfs[i][8] == state1[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state1[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state1);
-                    stack.push(state1);
-                    if (is_goal(state1, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num1{traverse_state(dfs, stack, temp, state1, goal, depth_limit, in_dfs)};
+                if (num1 == 0)
+                    break;
+                else if (num1 == 1)
                     continue;
-                }
-                in_dfs = false;
 
                 std::vector<int> state2 = std::vector<int>{temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[8], temp[7], temp[9] + 1};
-                for (size_t i{}; i < dfs.size(); i++)
-                    if (dfs[i][0] == state2[0])
-                        if (dfs[i][1] == state2[1])
-                            if (dfs[i][2] == state2[2])
-                                if (dfs[i][3] == state2[3])
-                                    if (dfs[i][4] == state2[4])
-                                        if (dfs[i][5] == state2[5])
-                                            if (dfs[i][6] == state2[6])
-                                                if (dfs[i][7] == state2[7])
-                                                    if (dfs[i][8] == state2[8])
-                                                    {
-                                                        if (depth_limit != -1)
-                                                        {
-                                                            if (dfs[i][9] > state2[9])
-                                                                dfs.erase(dfs.begin() + i);
-                                                            else
-                                                                in_dfs = true;
-                                                        }
-                                                        else
-                                                            in_dfs = true;
-                                                        break;
-                                                    }
-
-                if (!in_dfs)
-                {
-                    stack.push(temp);
-                    dfs.push_back(state2);
-                    stack.push(state2);
-                    if (is_goal(state2, goal))
-                    {
-                        solved_DFS(stack, goal);
-                        break;
-                    }
+                size_t num2{traverse_state(dfs, stack, temp, state2, goal, depth_limit, in_dfs)};
+                if (num2 == 0)
+                    break;
+                else if (num2 == 1)
                     continue;
-                }
-                in_dfs = false;
             }
             if (stack.empty())
             {
@@ -1085,4 +341,45 @@ bool isSolvable(const std::vector<int> &arr, const std::vector<int> &goal)
 
     // return true if inversion count is even.
     return (invCount % 2 == invCount_goal % 2);
+}
+
+size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector<int>> &stack, std::vector<int> &temp, std::vector<int> &state, const std::vector<int> &goal, const int &depth_limit, bool &in_dfs)
+{
+    for (size_t i{}; i < dfs.size(); i++)
+        if (dfs[i][0] == state[0])
+            if (dfs[i][1] == state[1])
+                if (dfs[i][2] == state[2])
+                    if (dfs[i][3] == state[3])
+                        if (dfs[i][4] == state[4])
+                            if (dfs[i][5] == state[5])
+                                if (dfs[i][6] == state[6])
+                                    if (dfs[i][7] == state[7])
+                                        if (dfs[i][8] == state[8])
+                                        {
+                                            if (depth_limit != -1)
+                                            {
+                                                if (dfs[i][9] > state[9])
+                                                    dfs.erase(dfs.begin() + i);
+                                                else
+                                                    in_dfs = true;
+                                            }
+                                            else
+                                                in_dfs = true;
+                                            break;
+                                        }
+
+    if (!in_dfs)
+    {
+        stack.push(temp);
+        dfs.push_back(state);
+        stack.push(state);
+        if (is_goal(state, goal))
+        {
+            solved_DFS(stack, goal);
+            return 0;
+        }
+        return 1;
+    }
+    in_dfs = false;
+    return 2;
 }
