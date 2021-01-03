@@ -7,7 +7,7 @@
 
 void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_limit = -1);
 void solved_DFS(std::stack<std::vector<int>> &stack, const std::vector<int> &goal);
-size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector<int>> &stack, std::vector<int> &temp, std::vector<int> &state, const std::vector<int> &goal, const int &depth_limit, bool &in_dfs);
+size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector<int>> &stack, const std::vector<int> &temp, const std::vector<int> &state, const std::vector<int> &goal, const int &depth_limit, bool &in_dfs);
 
 bool is_goal(const std::vector<int> &state, const std::vector<int> &goal);
 void print_puzzle(int steps, const std::vector<int> &state);

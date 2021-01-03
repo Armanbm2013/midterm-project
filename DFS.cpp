@@ -344,7 +344,7 @@ bool isSolvable(const std::vector<int> &arr, const std::vector<int> &goal)
     return (invCount % 2 == invCount_goal % 2);
 }
 
-size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector<int>> &stack, std::vector<int> &temp, std::vector<int> &state, const std::vector<int> &goal, const int &depth_limit, bool &in_dfs)
+size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector<int>> &stack, const std::vector<int> &temp, const std::vector<int> &state, const std::vector<int> &goal, const int &depth_limit, bool &in_dfs)
 {
     for (size_t i{}; i < dfs.size(); i++)
         if (dfs[i][0] == state[0])
