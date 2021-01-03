@@ -1548,7 +1548,7 @@ void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal)
     size_t steps{goal_node.parents.size()};
     std::cout << "\u001b[32;1m"; //Bright Green
     std::cout << "\n*************************\n";
-    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps - 1;
     std::cout << "\n*************************\n\u001b[0m";
 
     for (size_t i{0}; i < steps - 1; i++)
