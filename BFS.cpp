@@ -375,12 +375,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -388,17 +388,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -406,12 +406,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -419,12 +419,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -432,17 +432,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -450,12 +450,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 8)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -466,12 +466,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -479,12 +479,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -492,17 +492,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -510,17 +510,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -528,12 +528,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -541,12 +541,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -557,12 +557,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -570,17 +570,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -588,12 +588,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 2)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -601,12 +601,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -614,17 +614,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -632,12 +632,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -648,12 +648,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -661,12 +661,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -674,17 +674,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -692,17 +692,17 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num3{traverse_BFS_goal3(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num3 == 0)
                                         break;
                                 }
@@ -710,12 +710,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -723,12 +723,12 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num1{traverse_BFS_goal3(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num1 == 0)
                                         break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    size_t num2{traverse_BFS_goal3(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
                                     if (num2 == 0)
                                         break;
                                 }
@@ -1548,7 +1548,7 @@ void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal)
     size_t steps{goal_node.parents.size()};
     std::cout << "\u001b[32;1m"; //Bright Green
     std::cout << "\n*************************\n";
-    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps - 1;
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
     std::cout << "\n*************************\n\u001b[0m";
 
     for (size_t i{0}; i < steps - 1; i++)
