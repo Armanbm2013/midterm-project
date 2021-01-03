@@ -120,205 +120,53 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                     if (i == 4)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 5)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 7)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 8)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_4578_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
                                 }
 
@@ -327,205 +175,53 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                     if (i == 0)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 1)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 3)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 4)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_013_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
                                 }
 
@@ -534,205 +230,53 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                     if (i == 1)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 2)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 4)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 5)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_2_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
                                 }
 
@@ -741,205 +285,53 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                     if (i == 3)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 4)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 6)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
 
                                     else if (i == 7)
                                     {
                                         std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state1)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state1};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num1{traverse_BFS_goal4(state1, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num1 == 0)
+                                            break;
 
                                         std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                        for (auto &node : bfs4)
-                                        {
-                                            if (node.state == state2)
-                                            {
-                                                in_bfs4 = true;
-                                                break;
-                                            }
-                                        }
-
-                                        if (!in_bfs4)
-                                        {
-                                            Node node{temp1, state2};
-                                            bfs4.push_back(node);
-                                            queue4.push(node);
-                                            if (is_goal_6_4(node.state, goal))
-                                            {
-                                                solved_Fast_BFS(node, goal);
-                                                goal_finded = true;
-                                                break;
-                                            }
-                                        }
-                                        in_bfs4 = false;
+                                        size_t num2{traverse_BFS_goal4(state2, bfs4, queue4, temp1, in_bfs4, goal, goal_zero, goal_finded)};
+                                        if (num2 == 0)
+                                            break;
                                     }
                                 }
                             }
@@ -2156,7 +1548,7 @@ void solved_Fast_BFS(Node &goal_node, const std::vector<int> &goal)
     size_t steps{goal_node.parents.size()};
     std::cout << "\u001b[32;1m"; //Bright Green
     std::cout << "\n*************************\n";
-    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps;
+    std::cout << "******\u001b[36;1mPUZZLE SOLVED\u001b[32;1m******\nNumber of steps: " << steps - 1;
     std::cout << "\n*************************\n\u001b[0m";
 
     for (size_t i{0}; i < steps - 1; i++)
@@ -2334,5 +1726,62 @@ size_t traverse_BFS_goal3(std::vector<int> &state, std::vector<Node> &bfs3, std:
         }
     }
     in_bfs3 = false;
+    return 1;
+}
+
+size_t traverse_BFS_goal4(std::vector<int> &state, std::vector<Node> &bfs4, std::queue<Node> &queue4, const Node &temp1, bool &in_bfs4, const std::vector<int> &goal, const int &goal_zero, bool &goal_finded)
+{
+    for (auto &node : bfs4)
+    {
+        if (node.state == state)
+        {
+            in_bfs4 = true;
+            break;
+        }
+    }
+
+    if (!in_bfs4)
+    {
+        Node node{temp1, state};
+        bfs4.push_back(node);
+        queue4.push(node);
+        if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+        {
+            if (is_goal_4578_4(node.state, goal))
+            {
+                solved_Fast_BFS(node, goal);
+                goal_finded = true;
+                return 0;
+            }
+        }
+        else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+        {
+            if (is_goal_013_4(node.state, goal))
+            {
+                solved_Fast_BFS(node, goal);
+                goal_finded = true;
+                return 0;
+            }
+        }
+        else if (goal_zero == 2)
+        {
+            if (is_goal_2_4(node.state, goal))
+            {
+                solved_Fast_BFS(node, goal);
+                goal_finded = true;
+                return 0;
+            }
+        }
+        else //goal_zero = 6
+        {
+            if (is_goal_6_4(node.state, goal))
+            {
+                solved_Fast_BFS(node, goal);
+                goal_finded = true;
+                return 0;
+            }
+        }
+    }
+    in_bfs4 = false;
     return 1;
 }
