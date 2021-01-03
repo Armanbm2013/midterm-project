@@ -983,341 +983,89 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 8)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[8], temp1[6], temp1[7], temp1[5], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[8], temp1[7], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_4578_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
                             }
 
@@ -1326,341 +1074,89 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_013_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
                             }
 
@@ -1669,341 +1165,89 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 2)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[2], temp1[1], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 5)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[5], temp1[3], temp1[4], temp1[2], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[5], temp1[4], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_2_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
                             }
 
@@ -2012,341 +1256,89 @@ void BFS(std::vector<int> &initial, const std::vector<int> &goal, const int &dep
                                 if (i == 0)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 1)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[1], temp1[0], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 3)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[3], temp1[1], temp1[2], temp1[0], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 4)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[4], temp1[2], temp1[3], temp1[1], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[4], temp1[3], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
 
                                     std::vector<int> state3 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state3)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state3};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num3{traverse_BFS_goal2(state3, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num3 == 0)
+                                        break;
                                 }
 
                                 else if (i == 6)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[6], temp1[4], temp1[5], temp1[3], temp1[7], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
 
                                 else if (i == 7)
                                 {
                                     std::vector<int> state1 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[7], temp1[5], temp1[6], temp1[4], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state1)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state1};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num1{traverse_BFS_goal2(state1, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num1 == 0)
+                                        break;
 
                                     std::vector<int> state2 = std::vector<int>{temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[7], temp1[6], temp1[8], temp1[9] + 1};
-                                    for (auto &node : bfs3)
-                                    {
-                                        if (node.state == state2)
-                                        {
-                                            in_bfs3 = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!in_bfs3)
-                                    {
-                                        Node node{temp1, state2};
-                                        bfs3.push_back(node);
-                                        queue3.push(node);
-                                        if (is_goal_6_3(node.state, goal))
-                                        {
-                                            init = std::move(node);
-                                            break;
-                                        }
-                                    }
-                                    in_bfs3 = false;
+                                    size_t num2{traverse_BFS_goal2(state2, bfs3, queue3, temp1, in_bfs3, goal, goal_zero, init)};
+                                    if (num2 == 0)
+                                        break;
                                 }
                             }
                         }
@@ -3289,5 +2281,58 @@ size_t traverse_BFS_goal2(std::vector<int> &state, std::vector<Node> &bfs2, std:
         }
     }
     in_bfs2 = false;
+    return 1;
+}
+
+size_t traverse_BFS_goal3(std::vector<int> &state, std::vector<Node> &bfs3, std::queue<Node> &queue3, const Node &temp1, bool &in_bfs3, const std::vector<int> &goal, const int &goal_zero, Node &init)
+{
+    for (auto &node : bfs3)
+    {
+        if (node.state == state)
+        {
+            in_bfs3 = true;
+            break;
+        }
+    }
+
+    if (!in_bfs3)
+    {
+        Node node{temp1, state};
+        bfs3.push_back(node);
+        queue3.push(node);
+        if (goal_zero == 4 || goal_zero == 5 || goal_zero == 7 || goal_zero == 8)
+        {
+            if (is_goal_4578_3(node.state, goal))
+            {
+                init = std::move(node);
+                return 0;
+            }
+        }
+        else if (goal_zero == 0 || goal_zero == 1 || goal_zero == 3)
+        {
+            if (is_goal_013_3(node.state, goal))
+            {
+                init = std::move(node);
+                return 0;
+            }
+        }
+        else if (goal_zero == 2)
+        {
+            if (is_goal_2_3(node.state, goal))
+            {
+                init = std::move(node);
+                return 0;
+            }
+        }
+        else //goal_zero = 6
+        {
+            if (is_goal_6_3(node.state, goal))
+            {
+                init = std::move(node);
+                return 0;
+            }
+        }
+    }
+    in_bfs3 = false;
     return 1;
 }
