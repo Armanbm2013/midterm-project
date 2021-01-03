@@ -240,6 +240,7 @@ void DFS(std::vector<int> &init, const std::vector<int> &goal, const int &depth_
                 else if (num2 == 1)
                     continue;
             }
+
             if (stack.empty())
             {
                 std::cout << "\u001b[31;1mNo answers find till depth " << depth_limit << "\u001b[0m\n";
