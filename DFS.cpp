@@ -377,10 +377,10 @@ size_t traverse_state(std::vector<std::vector<int>> &dfs, std::stack<std::vector
         if (is_goal(state, goal))
         {
             solved_DFS(stack, goal);
-            return 0;
+            return 0; //causes the while loop in the DFS function to break
         }
-        return 1;
+        return 1; //causes the while loop in the DFS function to continue
     }
     in_dfs = false;
-    return 2;
+    return 2; // does nothing
 }
